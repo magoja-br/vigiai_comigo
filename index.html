@@ -1,0 +1,1268 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6b1220">
+<title>Vigiai comigo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111111;
+  --ink-soft:#3f3f3f;
+  --paper:#ffffff;
+  --parchment:#f1f1f1;
+  --wine:#b4182a;
+  --wine-dark:#111111;
+  --gold:#b4182a;
+  --gold-soft:#d6626f;
+  --rule:#dddddd;
+  --n1:#9e7828; --n2:#6b1220; --n3:#8c3040; --n4:#24446a;
+  --n5:#2e5c44; --n6:#5a5a5a; --n7:#888; --nx:#6e6e6e;
+}
+
+*{ box-sizing: border-box; }
+
+html,body{
+  padding:0; margin:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'EB Garamond', 'Noto Serif', Georgia, serif;
+  font-size: 14pt;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,h2,h3,h4{
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  color: var(--wine-dark);
+  font-weight: 600;
+  line-height: 1.2;
+  break-after: avoid;
+}
+
+main.content{ padding: 2mm 0 4mm 0; }
+
+/* ---------- Capa ---------- */
+section.cover{
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 28mm 10mm 20mm 10mm;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 20%, #f4f4f4 0%, var(--paper) 70%);
+  break-after: page;
+  border-top: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
+}
+section.cover::before{
+  content:"";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: var(--gold-soft);
+  margin: 0 auto 2.4em auto;
+}
+section.cover h1{
+  font-size: 3.4rem; font-weight: 700;
+  margin: 0 0 .5em 0; max-width: 18em;
+  color: var(--wine-dark);
+}
+section.cover h2{
+  font-family: 'EB Garamond', serif; font-weight: 400; font-style: italic;
+  font-size: 1.4rem; color: var(--ink-soft);
+  margin: 0 0 1.2em 0; max-width: 28em;
+}
+section.cover h3{
+  font-family: 'EB Garamond', serif; font-weight: 400; font-size: .9rem;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--gold);
+  margin: 0 0 2.2em 0;
+}
+section.cover blockquote{
+  border:none; background:none;
+  max-width: 26em; margin: 0 auto 2em auto; padding: 0;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: .8em 1.5em;
+}
+section.cover blockquote p{
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 1.18rem; color: var(--ink-soft); line-height: 1.55;
+  margin:0;
+}
+.cover-ornament{ margin-top: 2em; font-size: 1.4rem; color: var(--gold); opacity: .75; }
+
+/* ---------- Sumario ---------- */
+nav.toc-page{
+  break-after: page;
+  padding: 10mm 4mm 8mm 4mm;
+}
+nav.toc-page h2{
+  font-size: 2.2rem; text-align:center;
+  margin-bottom: .4em; color: var(--wine-dark);
+}
+nav.toc-page h2::after{
+  content:""; display:block; width:56px; height:2px;
+  background: var(--gold-soft); margin: .5em auto 1.6em auto;
+}
+div.toc ul{ list-style:none; margin:0; padding:0; }
+div.toc > ul > li{
+  margin: 0 0 0 0; padding: .75em 0;
+  border-bottom: 1px solid var(--rule);
+}
+div.toc > ul > li:first-child{ border-top: 1px solid var(--rule); }
+div.toc a{
+  text-decoration:none; color: var(--ink);
+  font-size: 1.08rem; font-family: 'Cormorant Garamond', serif;
+  display:block; font-weight: 500;
+}
+div.toc a:hover{ color: var(--wine); }
+
+/* ---------- Headings ---------- */
+main.content h2{
+  font-size: 2.15rem; margin: 0 0 .1em 0;
+  padding-top: 2mm; break-before: page; break-after: avoid;
+}
+main.content h2::after{
+  content:""; display:block; width: 50px; height: 3px;
+  background: var(--gold-soft); margin: .4em 0 .9em 0;
+}
+main.content h2.h2-apresentacao{ break-before: avoid; }
+main.content h2.h2-no-break{ break-before: auto; }
+main.content h3{
+  font-size: 1.5rem; color: var(--wine);
+  margin: 1.5em 0 .5em 0; break-after: avoid;
+}
+main.content h4{ font-size: 1.15rem; color: var(--ink-soft); margin: 1.2em 0 .4em 0; }
+main.content h5,main.content h6{
+  font-family: 'EB Garamond', serif; font-style: italic; font-weight: 600;
+  font-size: 1.02rem; color: var(--ink-soft); margin: 1em 0 .35em 0; break-after: avoid;
+}
+
+h3.review-heading{
+  margin-top: 2em; font-style: italic; color: var(--gold);
+  font-size: 1.1rem; text-transform: uppercase; letter-spacing: .04em;
+}
+h3.review-heading + ol{
+  background: var(--parchment); border-left: 3px solid var(--gold-soft);
+  border-radius: 3px; padding: 1em 1.5em 1em 2.5em;
+}
+h3.review-heading + ol li{ margin-bottom: .5em; }
+h3.review-heading + ol li:last-child{ margin-bottom: 0; }
+
+/* ---------- Paragrafos / listas ---------- */
+main.content p{ margin: 0 0 .85em 0; text-align: justify; orphans: 4; widows: 4; }
+main.content ul, main.content ol{ margin: 0 0 .9em 0; padding-left: 1.6em; }
+main.content li{ margin-bottom: .3em; }
+main.content strong{ color: var(--wine-dark); font-weight: 700; }
+main.content em{ color: var(--ink-soft); }
+
+/* ---------- Blocos de codigo / prompt ---------- */
+main.content pre{
+  background: var(--parchment); border: 1px solid var(--rule);
+  border-left: 4px solid var(--gold); border-radius: 2px;
+  padding: .9em 1.1em; margin: 0 0 1.1em 0;
+  white-space: pre-wrap; word-wrap: break-word;
+  font-family: 'Courier New', monospace; font-size: .82rem; line-height: 1.5;
+  color: var(--ink-soft);
+  /* sem break-inside:avoid de proposito: um prompt longo (>1 pagina) forcado a
+     nao quebrar vira o mesmo bug de "tabela maior que a pagina" ja documentado
+     em notas-tecnicas-pdf.md (#3) -- heading isolado com espaco vazio embaixo.
+     Deixamos quebrar livremente entre paginas, como o texto normal. */
+}
+main.content code{
+  font-family: 'Courier New', monospace; font-size: .92em;
+  background: var(--parchment); padding: .05em .3em; border-radius: 2px;
+}
+main.content pre code{ background: none; padding: 0; }
+
+/* ---------- Citacoes ---------- */
+main.content blockquote{
+  margin: 1.2em 2em 1.3em 2em; padding: .85em 1.4em;
+  background: var(--parchment); border-left: 4px solid var(--wine);
+  border-radius: 2px; break-inside: avoid;
+}
+main.content blockquote p{ font-style: italic; color: var(--ink-soft); margin-bottom: .35em; }
+main.content blockquote p:last-child{ margin-bottom: 0; }
+
+/* ---------- Notas ---------- */
+p.nota{
+  background: var(--parchment); border: 1px solid var(--rule); border-left: 4px solid var(--gold);
+  border-radius: 2px; padding: .7em 1.1em; font-size: .96rem; color: var(--ink-soft);
+  break-inside: avoid;
+}
+
+/* ---------- Tabelas ---------- */
+main.content table{
+  width: 100%; border-collapse: collapse;
+  margin: 1em 0 1.4em 0; font-size: 1rem; break-inside: avoid;
+}
+main.content th, main.content td{
+  border: 1px solid var(--rule); padding: .55em .85em;
+  text-align: left; vertical-align: top;
+}
+main.content thead th{
+  background: var(--wine-dark); color: #ffffff;
+  font-family: 'Cormorant Garamond', serif; font-weight: 600;
+  font-size: 1.05rem; letter-spacing: .025em;
+}
+main.content tbody tr:nth-child(even){ background: var(--parchment); }
+
+h2.timeline-heading + table{ break-inside: auto; }
+h2.timeline-heading + table tr{ break-inside: avoid; }
+/* Tabelas longas (marcadas automaticamente em Python, passo 4b): quebram
+   entre linhas, repetindo o cabecalho (bug 3 das notas tecnicas). */
+main.content table.long-table{ break-inside: auto; }
+main.content table.long-table tr{ break-inside: avoid; }
+main.content table.long-table thead{ display: table-header-group; }
+
+/* ---------- Badges de nivel de autoridade ---------- */
+.nivel{
+  display:inline; font-family: 'EB Garamond', serif; font-style: normal; font-weight: 600;
+  font-size: .85em; padding: .05em .42em; border-radius: 6px;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.nivel em{ color: inherit; font-style: italic; }
+.nivel-1{ color: var(--n1); border: 1px solid var(--n1); background: color-mix(in srgb, var(--n1) 12%, var(--paper)); }
+.nivel-2{ color: var(--n2); border: 1px solid var(--n2); background: color-mix(in srgb, var(--n2) 10%, var(--paper)); }
+.nivel-3{ color: var(--n3); border: 1px solid var(--n3); background: color-mix(in srgb, var(--n3) 11%, var(--paper)); }
+.nivel-4{ color: var(--n4); border: 1px solid var(--n4); background: color-mix(in srgb, var(--n4) 11%, var(--paper)); }
+.nivel-5{ color: var(--n5); border: 1px solid var(--n5); background: color-mix(in srgb, var(--n5) 11%, var(--paper)); }
+.nivel-6{ color: var(--n6); border: 1px solid var(--n6); background: color-mix(in srgb, var(--n6) 11%, var(--paper)); }
+.nivel-7{ color: var(--n7); border: 1px solid var(--n7); background: color-mix(in srgb, var(--n7) 11%, var(--paper)); }
+.nivel-x{ color: var(--nx); border: 1px solid var(--nx); background: color-mix(in srgb, var(--nx) 11%, var(--paper)); }
+
+/* ---------- Glossario / bibliografias ---------- */
+h2.glossary-heading + ul{ list-style:none; padding:0; margin:0; }
+h2.glossary-heading + ul li{ padding: .5em 0; border-bottom: 1px dotted var(--rule); }
+h2.glossary-heading + ul li strong{ color: var(--wine); }
+
+main.content a{ color: var(--wine); text-decoration: none; border-bottom: 1px solid var(--gold-soft); }
+h2.biblio1-heading + p + ol a::before{ content: "\25B6"; font-size: .65em; color: var(--gold); margin-right: .4em; }
+
+main.content hr{ display:none; }
+
+main.content blockquote p{ white-space: pre-line; }
+main.content blockquote, main.content blockquote p{ break-inside: auto !important; page-break-inside: auto !important; }
+
+@media screen {
+  html{ font-size: 18px; scroll-behavior: smooth; }
+  html,body{ font-size: 18px; line-height: 1.7; }
+  body{ max-width: 46rem; margin: 0 auto; padding: 0 1.4rem 4rem 1.4rem; }
+  section.cover{ min-height: 92vh; padding: 3rem 1rem; break-after: auto; }
+  section.cover h1{ font-size: 2.8rem; }
+  nav.toc-page{ padding: 2rem 0 1rem 0; border-bottom: 1px solid var(--rule); }
+  main.content h2{ margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); }
+  main.content table{ display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  main.content img{ max-width: 100%; height: auto; }
+  a.topo{ position: fixed; right: 14px; bottom: 14px; width: 46px; height: 46px; border-radius: 50%;
+    background: var(--wine); color: #fff !important; text-decoration: none; display: flex;
+    align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 2px 8px rgba(0,0,0,.25); opacity: .88; z-index: 10; }
+  a.topo:hover{ opacity: 1; }
+}
+@media screen and (max-width: 600px) {
+  html,body{ font-size: 17px; line-height: 1.65; }
+  body{ padding: 0 1rem 4.5rem 1rem; }
+  section.cover{ min-height: 85vh; padding: 2rem .5rem; }
+  section.cover h1{ font-size: 2.2rem; }
+  section.cover h2{ font-size: 1.15rem; }
+  main.content h2{ font-size: 1.7rem; }
+  main.content h3{ font-size: 1.3rem; }
+  main.content blockquote{ margin-left: 0; margin-right: 0; padding-left: .8em; }
+  main.content table{ font-size: .88rem; }
+  main.content p, main.content li{ text-align: left; hyphens: auto; }
+}
+@media print { a.topo{ display: none; } }
+</style>
+</head>
+<body>
+<section class="cover"><h1 id="vigiai-comigo">Vigiai comigo</h1>
+<h2 id="guia-completo-da-hora-santa-das-primeiras-sextas-feiras">Guia completo da Hora Santa das primeiras sextas-feiras</h2>
+<h3 id="edicao-2026">Edição 2026</h3>
+<blockquote>
+<p><em>"Ficai aqui e vigiai comigo."</em> (Mt 26,38)</p>
+</blockquote>
+<div class="cover-ornament">&#10013;</div></section><nav id="sumario" class="toc-page"><h2>Sumário</h2><div class="toc"><ul>
+
+<li><a href="#introducao">Introdução</a></li>
+<li><a href="#capitulo-1-ficai-aqui-e-vigiai-comigo">Capítulo 1 — "Ficai aqui e vigiai comigo"</a></li>
+<li><a href="#capitulo-2-por-que-adorar">Capítulo 2 — Por que adorar</a></li>
+<li><a href="#capitulo-3-as-formas-da-hora-santa">Capítulo 3 — As formas da Hora Santa</a></li>
+<li><a href="#capitulo-4-o-que-a-igreja-pede">Capítulo 4 — O que a Igreja pede</a></li>
+<li><a href="#capitulo-5-o-rito-passo-a-passo">Capítulo 5 — O rito, passo a passo</a></li>
+<li><a href="#capitulo-6-o-coracao-da-hora">Capítulo 6 — O coração da hora</a></li>
+<li><a href="#capitulo-7-a-equipe">Capítulo 7 — A equipe</a></li>
+<li><a href="#capitulo-8-cinco-roteiros-completos">Capítulo 8 — Cinco roteiros completos</a></li>
+<li><a href="#capitulo-9-ao-longo-do-ano">Capítulo 9 — Ao longo do ano</a></li>
+<li><a href="#capitulo-10-perguntas-que-todos-fazem">Capítulo 10 — Perguntas que todos fazem</a></li>
+<li><a href="#apendice-textos-e-oracoes">Apêndice — Textos e orações</a></li>
+</ul></div></nav><main class="content">
+<h2 id="introducao">Introdução</h2>
+<p>Na noite em que foi entregue, Jesus levou três amigos ao Jardim das Oliveiras, afastou-se um pouco, caiu por terra e rezou. Quando voltou, encontrou-os dormindo. A pergunta que lhes fez atravessou os séculos e chega até nós: "Não fostes capazes de vigiar uma hora comigo?" (Mt 26,40).</p>
+<p>A Hora Santa é a resposta a essa pergunta. É uma hora inteira passada com Jesus, de preferência diante dele presente no Santíssimo Sacramento, para lhe fazer companhia na agonia, consolar o seu Coração, reparar o abandono que Ele sofre e pedir misericórdia para o mundo. Em muitas paróquias, ela se tornou o centro da primeira sexta-feira do mês: as pessoas chegam antes da Missa, adoram, escutam a Palavra, rezam juntas e depois comungam em reparação.</p>
+<p>Este livro quer ser um guia completo para essa hora. Escrevemos para três tipos de leitor ao mesmo tempo:</p>
+<ul>
+<li><strong>quem participa</strong>, e quer saber o que está acontecendo diante dos seus olhos, por que se faz assim e como rezar melhor;</li>
+<li><strong>quem prepara e conduz</strong>: o ministro que expõe o Santíssimo, o animador, os leitores, a equipe de canto, quem cuida da sacristia e da acolhida;</li>
+<li><strong>quem reza sozinho ou em família</strong>, numa capela, diante do sacrário fechado ou em casa.</li>
+</ul>
+<p>O caminho é simples. Os três primeiros capítulos mostram de onde vem a Hora Santa, por que adoramos e de que formas ela pode ser feita. Os dois seguintes explicam o que a Igreja pede e como se faz o rito da exposição, da bênção e da reposição, com todos os gestos e textos. Depois vêm a oração propriamente dita, a equipe, cinco roteiros completos, o ano litúrgico e as perguntas mais frequentes. No fim, um apêndice reúne os textos e as orações, para que ninguém precise de outro livro na mão.</p>
+<p>Uma última palavra. Tudo o que diremos sobre normas, funções e roteiros está a serviço de uma só coisa: que alguém, diante do Senhor, deixe de dormir e comece a vigiar com Ele. Uma Hora Santa impecável na forma e vazia de amor não consola ninguém. Uma Hora Santa simples, feita com o coração desperto, consola o Coração de Cristo.</p>
+<hr />
+<h2 id="capitulo-1-ficai-aqui-e-vigiai-comigo">Capítulo 1 — "Ficai aqui e vigiai comigo"</h2>
+<h3 id="o-getsemani">O Getsêmani</h3>
+<p>Tudo começa num jardim. Depois da Ceia, Jesus vai com os discípulos ao Monte das Oliveiras. Toma consigo Pedro, Tiago e João, começa a sentir pavor e angústia, e diz-lhes: "Minha alma está triste até a morte. Ficai aqui e vigiai comigo" (Mt 26,38). Afasta-se um pouco, cai por terra e reza: "Abbá, Pai! [...] não o que eu quero, mas o que tu queres" (Mc 14,36). Volta três vezes, e três vezes os encontra dormindo.</p>
+<p>São Lucas acrescenta um detalhe precioso: na sua angústia, apareceu-lhe um anjo do céu que o confortava (Lc 22,43). Os amigos dormiam; um anjo o consolou. Guardemos esse anjo. Ele vai reaparecer ao longo deste livro, porque é exatamente o que a Hora Santa quer ser.</p>
+<h3 id="o-pedido-de-paray-le-monial">O pedido de Paray-le-Monial</h3>
+<p>Dezesseis séculos depois, num mosteiro da Visitação em Paray-le-Monial, na França, Jesus renovou esse pedido a uma religiosa, Santa Margarida Maria Alacoque. Em 1674, no mesmo período em que pediu a comunhão reparadora nas primeiras sextas-feiras, disse-lhe que, todas as noites de quinta para sexta-feira, a faria participar da tristeza mortal que quis sentir no Jardim das Oliveiras. E pediu que ela se levantasse <strong>entre as onze horas e a meia-noite</strong> e passasse <strong>uma hora prostrada</strong> com Ele, unida à sua agonia, para pedir misericórdia pelos pecadores e aliviar de algum modo a amargura que sentiu com o abandono dos apóstolos.</p>
+<p>Assim nasceu a Hora Santa. Muitas Horas Santas começam ainda hoje com uma fórmula que resume esse pedido: passar uma hora em oração "para aplacar a justiça divina, implorar misericórdia para os pecadores, honrar-me e consolar-me" no abandono em que os apóstolos o deixaram.</p>
+<h3 id="o-sentido-estar-com-jesus">O sentido: estar com Jesus</h3>
+<p>O Santuário de Paray-le-Monial explica o sentido da Hora Santa com uma simplicidade que convém não perder: trata-se de <strong>estar com Jesus na sua agonia</strong>. Deixar que o seu sofrimento de amor nos toque, sofrer com Ele e, unidos a Ele, alcançar misericórdia para os pecadores. Não é um tempo de oração qualquer. É uma oração centrada na Paixão, para estar presente de coração onde os apóstolos, cansados, não foram capazes de vigiar.</p>
+<p>Podemos resumir esse sentido em quatro verbos, que vão organizar todo o resto do livro:</p>
+<ol>
+<li><strong>Vigiar</strong>: ficar acordado com Jesus, fazer-lhe companhia.</li>
+<li><strong>Consolar</strong>: ser, para Ele, o anjo do Getsêmani.</li>
+<li><strong>Reparar</strong>: amar no lugar de quem não ama, oferecer-lhe o amor que lhe é recusado.</li>
+<li><strong>Interceder</strong>: apresentar ao Pai, com Ele, os pecadores e todos os que sofrem.</li>
+</ol>
+<h3 id="pode-se-consolar-cristo-glorioso">Pode-se consolar Cristo glorioso?</h3>
+<p>Alguém poderia objetar: Cristo ressuscitou, já não sofre. Como consolá-lo?</p>
+<p>Pio XI respondeu com uma intuição de grande beleza na encíclica <em>Miserentissimus Redemptor</em>. Se a alma de Cristo se entristeceu até a morte à vista dos nossos pecados futuros, "não há dúvida que desde então Lhe tenha dado algum conforto a previsão do nosso desagravo", como o anjo que o consolou no Horto. E conclui: "podemos e devemos consolar este Coração Sacratíssimo". Na agonia, Jesus via todos os tempos. A hora que passamos hoje diante dele chegou-lhe ao Getsêmani.</p>
+<p>O mesmo papa aplica ao Coração de Cristo a queixa do salmo: "Procurei quem me consolasse, e não encontrei" (Sl 69,21). A Hora Santa é a resposta de quem quer ser encontrado.</p>
+<h3 id="a-igreja-aprovou-e-recomenda">A Igreja aprovou e recomenda</h3>
+<p>Pio XI registra que a comunhão reparadora e as orações prolongadas por uma hora inteira, "com razão chamada Hora Santa", foram aprovadas pela Igreja e enriquecidas com indulgências. E o Papa Francisco, na encíclica <em>Dilexit nos</em>, equilibra os dois lados com delicadeza: "ninguém deve sentir-se obrigado a fazer uma hora de adoração às quintas-feiras. Mas como não o recomendar?"</p>
+<p>Há aqui uma lição para quem conduz. A Hora Santa é proposta, não imposta. Revelações privadas, mesmo as aprovadas pela Igreja, não obrigam o fiel como a Palavra de Deus obriga. Mas a experiência de gerações mostra que poucas práticas fazem tanto bem a uma comunidade.</p>
+<h3 id="quinta-feira-a-noite-ou-primeira-sexta-feira">Quinta-feira à noite ou primeira sexta-feira?</h3>
+<p>O pedido feito à santa foi de uma hora <strong>toda semana, na noite de quinta para sexta</strong>, das onze à meia-noite. Hoje a Hora Santa costuma ser feita de duas formas, ambas legítimas:</p>
+<ul>
+<li><strong>na quinta-feira à noite</strong>, sobretudo na véspera da primeira sexta-feira, mais perto do pedido original;</li>
+<li><strong>na própria primeira sexta-feira</strong>, muitas vezes logo antes da Missa em que se faz a comunhão reparadora.</li>
+</ul>
+<p>Fazer a Hora Santa na primeira sexta é uma adaptação pastoral muito difundida, e não o texto exato do pedido. Convém sabê-lo, para não dizer aos fiéis que "Jesus pediu uma Hora Santa na primeira sexta-feira". Quem estudou o tema com cuidado lembra que o horário pedido explicitamente à santa não precisa ser vivido como obrigatório por todos. O essencial é <strong>uma hora inteira e contínua de oração sobre a Paixão do Senhor</strong>, em silêncio ou em voz alta, sozinho ou com outros, diante do Santíssimo ou não, no espaço que vai da tarde de quinta-feira à manhã de sexta. Cada comunidade pode escolher o horário possível para o seu povo.</p>
+<hr />
+<p><em>Para levar consigo.</em> Leia devagar Lucas 22,39-46. Detenha-se no versículo 43, o do anjo. Pergunte-se: o que me impede de ser, uma vez por mês, esse anjo para Jesus?</p>
+<hr />
+<h2 id="capitulo-2-por-que-adorar">Capítulo 2 — Por que adorar</h2>
+<h3 id="uma-presenca-que-nasce-do-sacrificio">Uma presença que nasce do sacrifício</h3>
+<p>A Hora Santa é, antes de tudo, adoração. Para fazê-la bem, precisamos entender o que adoramos e por quê.</p>
+<p>A Igreja ensina que Cristo está presente na Eucaristia verdadeira e realmente, e que por isso ela "sempre prestou e continua a prestar este culto de adoração que é devido ao sacramento da Eucaristia, não só durante a missa, mas também fora da sua celebração". Cristo quis que tivéssemos "o memorial do amor com que nos amou 'até ao fim' (Jo 13,1)". Na presença eucarística, "Ele fica misteriosamente no meio de nós, como Aquele que nos amou e Se entregou por nós".</p>
+<p>Mas há uma ordem nas coisas que não podemos esquecer. O ritual da Igreja para o culto eucarístico fora da Missa lembra que os fiéis, quando veneram Cristo presente no Sacramento, devem recordar que essa presença <strong>deriva do sacrifício</strong> e <strong>tende à comunhão</strong>, sacramental e espiritual. A hóstia que adoramos foi consagrada numa Missa e nos foi dada para ser comida. A adoração nasce da Missa e leva de volta a ela.</p>
+<p>É por isso que a exposição do Santíssimo deve ser organizada de modo a não obscurecer o desejo principal de Cristo ao instituir a Eucaristia: estar conosco <strong>como alimento, remédio e conforto</strong>. E é por isso também que a Hora Santa da primeira sexta-feira, quando termina na Missa com a comunhão reparadora, tem uma lógica tão bela. Adoramos aquele que, daqui a pouco, vamos receber.</p>
+<h3 id="adorar-e-comungar-nao-se-opoem">Adorar e comungar não se opõem</h3>
+<p>Houve quem objetasse: se o pão eucarístico foi dado "não para ser contemplado, mas comido", por que adorá-lo? Bento XVI respondeu com Santo Agostinho: "ninguém come esta carne, sem antes a adorar; (...) pecaríamos se não a adorássemos". Adorar é a atitude justa diante de quem se dá a nós como alimento. E o mesmo papa recomendou "vivamente" a adoração "tanto pessoal como comunitária", pedindo que paróquias e grupos promovam "momentos de adoração comunitária".</p>
+<p>A oração diante do Senhor presente no Sacramento <strong>prolonga a união</strong> com Cristo que alcançamos na comunhão. Renova a aliança e nos impele a viver o que recebemos pela fé e pelos sacramentos. A contemplação de Jesus presente no Santíssimo é, ela mesma, uma forma de comunhão espiritual que une fortemente a Ele.</p>
+<h3 id="o-que-acontece-em-quem-adora">O que acontece em quem adora</h3>
+<p>O Diretório da Igreja sobre a piedade popular descreve, com palavras tomadas do ritual, o que se passa em quem se prostra diante da Eucaristia. A mesma piedade que o leva a adorar atrai-o a participar mais profundamente do mistério pascal. Junto de Cristo, o fiel desfruta da sua intimidade, abre-lhe o coração por si e pelos seus, e reza pela paz e pela salvação do mundo. Oferecendo a vida inteira com Cristo ao Pai, no Espírito Santo, recebe desse admirável intercâmbio um aumento de fé, de esperança e de caridade. E assim se prepara para celebrar o memorial do Senhor com a devida devoção e para receber frequentemente o Pão que o Pai nos dá.</p>
+<p>O mesmo documento lembra a origem mais antiga da adoração: a oração que segue a Missa da Ceia do Senhor na Quinta-feira Santa, e a reserva das hóstias consagradas, feita sobretudo para levar o viático aos doentes. Foi diante do sacrário, guardado para os moribundos, que os fiéis aprenderam a se recolher em oração. A Hora Santa, nascida da noite de Quinta-feira Santa, está em casa nessa história.</p>
+<h3 id="a-primeira-de-todas-as-devocoes">"A primeira de todas as devoções"</h3>
+<p>São João Paulo II escreveu, na encíclica <em>Ecclesia de Eucharistia</em>, a página que melhor une a adoração eucarística e o Coração de Cristo:</p>
+<blockquote>
+<p>"É bom demorar-se com Ele e, inclinado sobre o seu peito como o discípulo predilecto (cf. Jo 13, 25), deixar-se tocar pelo amor infinito do seu coração. […] como não sentir de novo a necessidade de permanecer longamente, em diálogo espiritual, adoração silenciosa, atitude de amor, diante de Cristo presente no Santíssimo Sacramento?"</p>
+</blockquote>
+<p>No mesmo texto, o papa cita Santo Afonso de Ligório: adorar Jesus sacramentado é, "depois dos sacramentos, a primeira de todas as devoções".</p>
+<p>Eis a Hora Santa da primeira sexta-feira: adoração eucarística e contemplação do Coração ao mesmo tempo, a cabeça inclinada sobre o peito do Senhor, como João na Ceia.</p>
+<h3 id="o-coracao-e-a-hostia">O Coração e a hóstia</h3>
+<p>Há uma última razão para unir as duas coisas. A grande queixa de Jesus em Paray foi justamente sobre a Eucaristia: "Eis este Coração que tanto amou os homens… e em retribuição só recebe, da maior parte, ingratidão, irreverências e sacrilégios, frieza e desprezo neste sacramento de amor". E Ele pediu que, pelo fervor de quem o ama, fossem reparadas as ofensas que recebe de "corações tíbios e preguiçosos" que o desonram no Santíssimo Sacramento.</p>
+<p>Não é por acaso que a festa do Sagrado Coração vem logo depois da festa do Corpo de Cristo. Não são duas devoções. São dois olhares sobre o mesmo amor. A Hora Santa diante do Santíssimo é o lugar onde esses dois olhares se encontram.</p>
+<hr />
+<p><em>Para levar consigo.</em> Na próxima vez que entrar numa igreja, mesmo de passagem, faça uma genuflexão diante do sacrário com consciência: "Estais aqui. Fostes consagrado numa Missa. Esperais ser recebido." Fique um minuto. É o começo de toda Hora Santa.</p>
+<hr />
+<h2 id="capitulo-3-as-formas-da-hora-santa">Capítulo 3 — As formas da Hora Santa</h2>
+<p>A Hora Santa não tem uma forma única. Ela pode ser feita por uma pessoa sozinha ou por uma paróquia inteira, numa catedral ou numa sala de estar. Conhecer as formas ajuda cada um a escolher a sua e ajuda a equipe a não confundir o que é essencial com o que é próprio de cada modalidade.</p>
+<h3 id="em-casa">Em casa</h3>
+<p>O Santuário de Paray-le-Monial propõe expressamente a Hora Santa <strong>em casa</strong>, sozinho ou em família, <strong>sem exposição</strong> do Santíssimo. Basta um lugar recolhido, uma imagem de Jesus, de preferência a imagem do Sagrado Coração entronizada no lar, uma vela e a Bíblia. É a forma mais próxima do pedido original: Santa Margarida Maria levantava-se à noite, na sua cela, para vigiar com o Senhor.</p>
+<p>Nessa forma, não há rito nem ministro. Há uma hora de oração sobre a Paixão, que pode seguir o roteiro pessoal ou o roteiro em família do capítulo 8.</p>
+<h3 id="diante-do-sacrario-fechado">Diante do sacrário fechado</h3>
+<p>É a forma mais simples na igreja. O Santíssimo permanece no sacrário, e os fiéis rezam diante dele. A Igreja chama isso de <strong>visita ao Santíssimo Sacramento</strong>: um encontro com Cristo motivado pela fé na sua presença e marcado pela oração silenciosa. Ela pede que os fiéis não deixem de fazê-la e que as igrejas onde se guarda a Eucaristia fiquem abertas ao menos algumas horas por dia, salvo razão grave, para que se possa rezar diante do Santíssimo.</p>
+<p>Uma Hora Santa comunitária pode ser feita assim, conduzida por um leigo, sem exposição. É uma solução excelente quando não há ministro para expor ou quando a comunidade é pequena.</p>
+<h3 id="com-o-santissimo-exposto">Com o Santíssimo exposto</h3>
+<p>É a forma mais conhecida das Horas Santas paroquiais. O Santíssimo é retirado do sacrário e colocado sobre o altar, no ostensório (a custódia) ou na píxide (a âmbula), para a adoração dos fiéis. A exposição pode ser:</p>
+<ul>
+<li><strong>breve</strong>, como numa Hora Santa de sessenta minutos, que termina com a bênção e a reposição;</li>
+<li><strong>prolongada</strong>, quando o Santíssimo fica exposto por muitas horas ou um dia inteiro, com turnos de adoradores;</li>
+<li><strong>perpétua</strong> ou das <strong>Quarenta Horas</strong>, que comprometem toda uma comunidade religiosa, uma associação ou uma paróquia.</li>
+</ul>
+<p>A Igreja recomenda que, nas igrejas onde se guarda a Eucaristia, haja ao menos uma vez por ano uma exposição solene e prolongada, para que a comunidade possa meditar mais profundamente este mistério. E reconhece como direito dos fiéis participar, ao menos algumas vezes por ano, da adoração diante do Santíssimo exposto.</p>
+<p>A primeira sexta-feira é uma ocasião natural para isso. Muitas paróquias fazem nela uma exposição breve, com a Hora Santa; outras mantêm o Santíssimo exposto durante o dia inteiro, com uma escala de adoradores, e encerram com a Hora Santa comunitária.</p>
+<h3 id="o-que-vale-para-a-indulgencia">O que vale para a indulgência</h3>
+<p>A Igreja concede <strong>indulgência plenária</strong>, uma vez por dia, ao fiel que adora o Santíssimo Sacramento <strong>durante pelo menos meia hora</strong>. E concede <strong>indulgência parcial</strong> a quem visita o Santíssimo para adorá-lo. Para a indulgência plenária, valem as condições habituais: confissão sacramental, comunhão eucarística, oração pelas intenções do Papa e completa rejeição de todo apego ao pecado, mesmo venial.</p>
+<p>Duas observações práticas:</p>
+<ul>
+<li>A indulgência vem da <strong>adoração</strong>, e não do fato de ser primeira sexta-feira. Na disciplina atual da Igreja não existe uma "indulgência das primeiras sextas". Diga-o com exatidão nos avisos e no folheto.</li>
+<li>Quem faz a Hora Santa diante do Santíssimo e depois se confessa, comunga na Missa e reza pelas intenções do Papa reúne, numa mesma tarde, as condições para lucrar a indulgência plenária.</li>
+</ul>
+<p>Também a <strong>Ladainha do Sagrado Coração</strong>, a <strong>comunhão espiritual</strong> e a oração <strong><em>Alma de Cristo</em></strong> têm indulgência parcial. E o <strong>Ato de Reparação</strong> de Pio XI, rezado publicamente na solenidade do Sagrado Coração, dá indulgência plenária.</p>
+<h3 id="qual-escolher">Qual escolher?</h3>
+<table class="long-table">
+<thead>
+<tr>
+<th>Situação</th>
+<th>Forma recomendada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sozinho, à noite, sem acesso à igreja</td>
+<td>Em casa, roteiro pessoal</td>
+</tr>
+<tr>
+<td>Família com a imagem entronizada</td>
+<td>Em casa, roteiro em família</td>
+</tr>
+<tr>
+<td>Grupo pequeno, sem ministro para expor</td>
+<td>Diante do sacrário fechado, conduzida por leigo</td>
+</tr>
+<tr>
+<td>Comunidade, com sacerdote ou diácono</td>
+<td>Exposição com bênção</td>
+</tr>
+<tr>
+<td>Comunidade, sem sacerdote nem diácono, com ministro designado</td>
+<td>Exposição e reposição sem bênção</td>
+</tr>
+<tr>
+<td>Paróquia que quer um dia de adoração</td>
+<td>Exposição prolongada com escala, encerrada pela Hora Santa</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Para levar consigo.</em> Qual destas formas cabe na sua vida neste mês? Escolha uma e marque o dia. Uma Hora Santa simples, feita, vale mais do que uma solene, apenas planejada.</p>
+<hr />
+<h2 id="capitulo-4-o-que-a-igreja-pede">Capítulo 4 — O que a Igreja pede</h2>
+<p>A exposição do Santíssimo Sacramento é um ato litúrgico. Por isso a Igreja a regula com cuidado, no Código de Direito Canônico, no ritual próprio do culto eucarístico fora da Missa e em várias instruções. Conhecer essas normas não é burocracia: é a forma concreta de tratar o Senhor com o respeito que Ele merece e de proteger os fiéis de improvisos.</p>
+<h3 id="quem-pode-expor-e-quem-pode-abencoar">Quem pode expor e quem pode abençoar</h3>
+<p>O <strong>ministro ordinário</strong> da exposição do Santíssimo e da bênção eucarística é o <strong>sacerdote</strong> ou o <strong>diácono</strong>. No fim da adoração, antes da reposição, é ele quem abençoa o povo com o Sacramento.</p>
+<p>Na ausência de sacerdote ou diácono, ou se estiverem legitimamente impedidos, podem <strong>expor e repor</strong> publicamente o Santíssimo para a adoração dos fiéis:</p>
+<ul>
+<li>o <strong>acólito</strong> ou o <strong>ministro extraordinário da sagrada comunhão</strong>;</li>
+<li>outra pessoa designada pelo <strong>Ordinário do lugar</strong>, como um membro de comunidade religiosa ou de associação de leigos dedicada à adoração eucarística, observadas as normas do bispo diocesano.</li>
+</ul>
+<p>Esses ministros podem abrir o sacrário, colocar a píxide sobre o altar ou a hóstia no ostensório e, no fim, repor o Santíssimo no sacrário. <strong>Não lhes é permitido dar a bênção com o Santíssimo.</strong> É uma regra clara, que toda equipe deve conhecer: um ministro leigo que expõe o Santíssimo encerra a adoração com a reposição, sem bênção.</p>
+<h3 id="exposicao-e-missa">Exposição e Missa</h3>
+<p><strong>Durante a exposição do Santíssimo, não se celebra a Missa no mesmo recinto.</strong> A celebração da Eucaristia contém de modo mais perfeito a comunhão interior a que a exposição quer conduzir. Se a exposição se prolonga por um dia inteiro ou por vários dias, ela é interrompida durante a Missa. A Missa pode ser celebrada numa capela distinta do lugar da exposição, desde que ao menos alguns fiéis permaneçam em adoração.</p>
+<p>Na prática, para a primeira sexta-feira: se a Hora Santa acontece antes da Missa, <strong>o Santíssimo deve ser reposto no sacrário antes de a Missa começar</strong>. Calcule o horário com folga.</p>
+<h3 id="nunca-sozinho">Nunca sozinho</h3>
+<p>O Santíssimo <strong>nunca deve ficar exposto sem vigilância suficiente</strong>, nem mesmo por pouco tempo. Organiza-se a adoração de modo que, nos horários previstos, sempre haja fiéis presentes, ao menos em turnos. Se não houver um número razoável de adoradores para uma exposição contínua, o Santíssimo pode ser reposto no sacrário em horários combinados e divulgados com antecedência, mas não mais de duas vezes ao dia, por exemplo ao meio-dia e à noite.</p>
+<h3 id="nao-expor-so-para-dar-a-bencao">Não expor só para dar a bênção</h3>
+<p>A Igreja proíbe a exposição feita <strong>apenas para dar a bênção</strong>. Mesmo uma exposição breve deve ser organizada de modo que a bênção seja precedida de um tempo conveniente de leituras da Palavra de Deus, cantos, orações e <strong>tempo suficiente de oração silenciosa</strong>. A bênção com o Santíssimo não é uma devoção isolada: é o momento que conclui um encontro de oração suficientemente amplo.</p>
+<h3 id="o-altar-as-velas-e-o-incenso">O altar, as velas e o incenso</h3>
+<ul>
+<li>A píxide ou o ostensório é colocado <strong>sobre a mesa do altar</strong>, coberta com uma toalha. Se a exposição com o ostensório for longa, pode-se usar um <strong>trono</strong> num lugar elevado, mas que não fique alto nem distante demais.</li>
+<li>Para a exposição com o <strong>ostensório</strong>, acendem-se <strong>de quatro a seis velas</strong>, como na Missa, e usa-se <strong>incenso</strong>. Para a exposição com a <strong>píxide</strong>, acendem-se <strong>ao menos duas velas</strong>, e o incenso é facultativo.</li>
+<li>Se o Santíssimo não estiver guardado no altar da exposição, o ministro o traz do sacrário com o <strong>véu umeral</strong>, acompanhado por acólitos ou fiéis com velas acesas.</li>
+</ul>
+<h3 id="as-vestes">As vestes</h3>
+<ul>
+<li>O <strong>sacerdote ou o diácono</strong> usa <strong>alva</strong>, ou sobrepeliz sobre a batina, e <strong>estola</strong>. Para dar a bênção com o ostensório, usa também <strong>pluvial branco</strong> e <strong>véu umeral</strong>; com a píxide, o véu umeral.</li>
+<li>Os <strong>outros ministros</strong> usam a veste litúrgica própria da região ou a veste aprovada pelo Ordinário para esse ministério.</li>
+</ul>
+<h3 id="a-genuflexao">A genuflexão</h3>
+<p>Diante do Santíssimo Sacramento, <strong>guardado no sacrário ou exposto</strong>, faz-se a <strong>genuflexão simples</strong>: um joelho vai ao chão por um instante. A norma é a mesma para o sacrário e para o Santíssimo exposto. Quem não pode ajoelhar-se, por idade ou doença, faz uma inclinação profunda. Permanecer de joelhos durante a adoração é um costume belo e expressivo, mas não uma obrigação; ninguém deve sentir-se constrangido a ficar ajoelhado além das suas forças.</p>
+<h3 id="o-lugar-de-maria-e-dos-santos">O lugar de Maria e dos santos</h3>
+<p>Este é um ponto em que muitas Horas Santas precisam de ajuste. A Igreja ensina que, durante a adoração diante do Santíssimo exposto, a oração deve dirigir-se a Cristo Senhor e ajudar os fiéis a compreender melhor o mistério eucarístico. Por isso, durante a exposição <strong>não se fazem outras práticas devocionais em honra da Virgem Maria e dos santos</strong>. É mais conveniente que as orações dirigidas diretamente a Nossa Senhora ou aos santos aconteçam <strong>fora do tempo da exposição</strong>.</p>
+<p>Há, porém, uma exceção importante: o <strong>terço</strong>. A Igreja diz expressamente que não se exclua a reza do Rosário diante do Santíssimo, no sacrário ou exposto, desde que se evidencie o seu caráter de <strong>contemplação dos mistérios da vida de Cristo</strong>, de preferência com leituras da Sagrada Escritura. Os mistérios dolorosos, começando pela agonia no Horto, combinam perfeitamente com a Hora Santa.</p>
+<p>E há um costume recomendado para depois: <strong>terminada a reposição</strong>, o celebrante pode conduzir os fiéis a uma imagem da Virgem, onde se canta um hino ou uma antífona em sua honra. É por isso que, nos roteiros deste livro, o canto a Nossa Senhora vem sempre <strong>depois</strong> da reposição.</p>
+<p>O mesmo vale, com equilíbrio, para as orações ao Sagrado Coração. Elas se dirigem ao próprio Cristo e cabem plenamente diante do Santíssimo. A imagem do Sagrado Coração pode estar em lugar de destaque, desde que <strong>não ocupe o lugar do Santíssimo</strong> nem desvie dele os olhares.</p>
+<h3 id="o-tempo-liturgico">O tempo litúrgico</h3>
+<p>As devoções eucarísticas devem estar em harmonia com a liturgia, nascer dela e levar o povo de volta a ela. Por isso, a Hora Santa leva em conta o <strong>tempo litúrgico</strong>: no Advento, na Quaresma, na Páscoa, as leituras, os cantos e as cores da oração acompanham a Igreja. Voltaremos a isso no capítulo 9.</p>
+<hr />
+<p><em>Para levar consigo.</em> Se você faz parte da equipe, releia este capítulo com o pároco ou com o responsável pela liturgia e verifiquem juntos: o que a nossa Hora Santa já faz bem? O que precisa ser ajustado?</p>
+<hr />
+<h2 id="capitulo-5-o-rito-passo-a-passo">Capítulo 5 — O rito, passo a passo</h2>
+<p>O rito da exposição e da bênção tem quatro partes: <strong>exposição, adoração, bênção e reposição</strong>. Vamos percorrê-las com os gestos e os textos. Os textos completos estão também no Apêndice.</p>
+<h3 id="1-exposicao">1. Exposição</h3>
+<p><strong>Canto.</strong> Reunido o povo, canta-se um canto eucarístico enquanto o ministro se aproxima do altar. O canto tradicional é o <em>O Salutaris Hostia</em>; em português, qualquer canto eucarístico de adoração conhecido da comunidade.</p>
+<p><strong>O Santíssimo é levado ao altar.</strong> Sobre o altar já está a toalha e, em geral, o corporal estendido. Se o Santíssimo está guardado num sacrário distante do altar, o ministro põe o véu umeral e o traz, acompanhado de velas. Se o sacrário está no próprio presbitério, o ministro abre o sacrário, faz a genuflexão, retira a píxide ou a luneta com a hóstia e a coloca no ostensório ou deixa a píxide sobre o altar.</p>
+<p><strong>Incensação.</strong> Se a exposição é feita com o ostensório, o ministro incensa o Santíssimo.</p>
+<p><strong>Aclamação.</strong> É costume, no Brasil, saudar o Senhor exposto com a aclamação:</p>
+<blockquote>
+<p>V. Graças e louvores se deem a todo o momento.
+R. <strong>Ao Santíssimo e diviníssimo Sacramento.</strong></p>
+</blockquote>
+<p>Muitas comunidades usam também a aclamação "Ó Sacramento santíssimo, ó Sacramento divino, todo louvor e toda graça a todo momento sejam dados a vós", intercalada com o Pai-Nosso, a Ave-Maria e o Glória.</p>
+<p>Se a adoração vai ser longa, o ministro pode depois retirar-se, deixando os fiéis em oração.</p>
+<h3 id="2-adoracao">2. Adoração</h3>
+<p>É o centro da hora, e o capítulo seguinte será todo dedicado a ela. Aqui basta lembrar o que a Igreja pede: <strong>orações, cantos e leituras</strong> que dirijam a atenção dos fiéis para Cristo; <strong>leituras da Escritura</strong> com uma breve homilia ou exortação, para compreender melhor o mistério eucarístico; <strong>respostas cantadas</strong> à Palavra; e <strong>momentos de silêncio</strong>. Quando a exposição é longa, pode-se celebrar diante do Santíssimo uma parte da <strong>Liturgia das Horas</strong>, sobretudo as Laudes e as Vésperas.</p>
+<h3 id="3-bencao">3. Bênção</h3>
+<p>A bênção só pode ser dada pelo <strong>sacerdote ou pelo diácono</strong>.</p>
+<p><strong>Hino eucarístico.</strong> Perto do fim da adoração, o sacerdote ou diácono vai ao altar, faz a genuflexão e ajoelha-se. Canta-se um hino eucarístico. O tradicional é o <em>Tantum ergo</em>, que no Brasil se canta como "Tão sublime Sacramento"; pode ser substituído por outro hino eucarístico aprovado. Enquanto isso, se a exposição foi feita com o ostensório, o ministro, de joelhos, incensa o Santíssimo.</p>
+<blockquote>
+<p>Tão sublime Sacramento
+adoremos neste altar,
+pois o Antigo Testamento
+deu ao Novo o seu lugar.
+Venha a fé, por suplemento,
+os sentidos completar!</p>
+<p>Ao eterno Pai cantemos
+e a Jesus, o Salvador!
+Ao Espírito exaltemos,
+na Trindade eterno amor!
+Ao Deus Uno e Trino demos
+a alegria do louvor! Amém.</p>
+</blockquote>
+<p><strong>Versículo.</strong> É costume acrescentar:</p>
+<blockquote>
+<p>V. Do céu lhes destes o Pão.
+R. <strong>Que contém todo o sabor.</strong></p>
+</blockquote>
+<p><strong>Oração.</strong> O ministro levanta-se e diz "Oremos". Depois de um breve silêncio, reza uma das orações previstas. A mais conhecida é a oração da solenidade de Corpus Christi:</p>
+<blockquote>
+<p>Senhor Jesus Cristo, neste admirável Sacramento nos deixastes o memorial da vossa paixão. Dai-nos venerar com tão grande amor o mistério do vosso Corpo e do vosso Sangue, que possamos colher continuamente os frutos da vossa redenção. Vós que viveis e reinais para sempre.
+R. <strong>Amém.</strong></p>
+</blockquote>
+<p><strong>A bênção.</strong> Depois da oração, o sacerdote ou diácono põe o véu umeral, faz a genuflexão, toma o ostensório ou a píxide e traça com ele o sinal da cruz sobre o povo, <strong>em silêncio</strong>. Os fiéis, de joelhos, recebem a bênção do próprio Senhor. Em alguns lugares há o costume de tocar discretamente uma sineta nesse momento.</p>
+<p><strong>Louvores Divinos.</strong> É costume, depois da bênção, rezar os Louvores Divinos, repetidos frase por frase pela assembleia: "Bendito seja Deus. Bendito seja o seu santo nome. [...] Bendito seja o seu Sacratíssimo Coração [...]". O texto completo está no Apêndice.</p>
+<h3 id="4-reposicao">4. Reposição</h3>
+<p>O sacerdote ou diácono que deu a bênção, ou outro sacerdote ou diácono, repõe o Santíssimo no sacrário e faz a genuflexão. Se o sacrário fica longe do altar, pode ir em procissão. Enquanto isso, o povo canta ou diz uma <strong>aclamação</strong>, por exemplo:</p>
+<blockquote>
+<p>V. Graças e louvores se deem a todo o momento.
+R. <strong>Ao Santíssimo e diviníssimo Sacramento.</strong></p>
+</blockquote>
+<p>Depois, o ministro retira-se. Se for o costume, os fiéis cantam então um hino a Nossa Senhora diante da sua imagem.</p>
+<h3 id="quando-o-ministro-e-leigo">Quando o ministro é leigo</h3>
+<p>Quando a exposição é feita por um ministro extraordinário da comunhão, um acólito ou outra pessoa designada, o rito é o mesmo, <strong>com uma diferença essencial: não há bênção</strong>. A estrutura fica assim:</p>
+<ol>
+<li><strong>Exposição</strong>: canto, o ministro abre o sacrário, coloca a hóstia no ostensório ou deixa a píxide sobre o altar, faz a genuflexão; aclamação.</li>
+<li><strong>Adoração</strong>: Palavra, silêncio, orações e cantos.</li>
+<li><strong>Encerramento</strong>: em vez da bênção, um canto eucarístico, como o "Tão sublime Sacramento", e uma oração final.</li>
+<li><strong>Reposição</strong>: o ministro repõe o Santíssimo no sacrário, faz a genuflexão; aclamação ou canto.</li>
+</ol>
+<p>O ministro leigo não usa o véu umeral para abençoar, porque não abençoa. Quanto ao incenso, às vestes e a outros detalhes, siga as orientações do bispo diocesano, que regula esse ministério.</p>
+<h3 id="a-exposicao-logo-depois-da-missa">A exposição logo depois da Missa</h3>
+<p>Quando a adoração começa imediatamente depois de uma Missa, a hóstia a ser exposta deve ser consagrada nessa mesma Missa e, depois da comunhão, colocada no ostensório sobre o altar. A Missa termina com a oração depois da comunhão, <strong>omitindo-se os ritos finais</strong>, e o sacerdote pode colocar o Santíssimo no trono e incensá-lo antes de se retirar. É uma forma muito expressiva de mostrar que a adoração nasce da Missa.</p>
+<hr />
+<p><em>Para levar consigo.</em> Na próxima bênção do Santíssimo, olhe para o ostensório no momento do silêncio. Não é o padre quem abençoa com as próprias mãos: é o Senhor quem traça sobre você o sinal da sua cruz.</p>
+<hr />
+<h2 id="capitulo-6-o-coracao-da-hora">Capítulo 6 — O coração da hora</h2>
+<p>O rito é a moldura. O quadro é a oração. Uma hora diante do Senhor pode ser vivida de muitos modos, mas a experiência da Igreja aponta alguns elementos que não podem faltar: a <strong>Palavra</strong>, o <strong>silêncio</strong>, a <strong>reparação</strong>, a <strong>intercessão</strong> e a <strong>entrega</strong>. Vejamos cada um.</p>
+<h3 id="a-palavra-de-deus">A Palavra de Deus</h3>
+<p>A Igreja pede que, nos momentos de adoração, os fiéis aprendam a usar a Sagrada Escritura como um livro de oração incomparável. Uma Hora Santa sem Palavra de Deus corre o risco de virar uma sequência de devoções. Com a Palavra, ela se torna diálogo: Deus fala, e nós respondemos.</p>
+<p><strong>O Evangelho da agonia em quatro momentos.</strong> O texto mais próprio da Hora Santa é a agonia no Getsêmani. Uma forma muito fecunda é dividir o relato de Marcos em quatro trechos, cada um seguido de silêncio, de um refrão cantado e de uma breve meditação:</p>
+<table>
+<thead>
+<tr>
+<th>Momento</th>
+<th>Trecho</th>
+<th>O que contemplar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mc 14,32-34: "Minha alma está triste até a morte; ficai aqui e vigiai"</td>
+<td>Jesus não esconde a sua tristeza e pede companhia. Quantas vezes eu o deixei sozinho?</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mc 14,35-36: "Abbá, Pai! [...] não o que eu quero, mas o que tu queres"</td>
+<td>O Coração de Jesus se entrega à vontade do Pai. Que vontade minha preciso entregar hoje?</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mc 14,37-38: "Simão, dormes? Não pudeste vigiar uma hora?"</td>
+<td>Jesus não acusa com dureza; desperta com amor. Ele conhece a nossa fraqueza e continua a nos chamar.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mc 14,39-42: "Levantai-vos, vamos!"</td>
+<td>A oração dá coragem. Jesus se levanta e vai ao encontro da Paixão; nós nos levantamos para ir ao encontro dos irmãos.</td>
+</tr>
+</tbody>
+</table>
+<p>O mesmo pode ser feito com Mateus 26,36-46 ou com Lucas 22,39-46, que traz o anjo consolador.</p>
+<p><strong>Outras leituras que se prestam bem à Hora Santa:</strong></p>
+<ul>
+<li><strong>Do Coração aberto:</strong> Jo 19,31-37 (o lado transpassado); Jo 7,37-39 (rios de água viva); Os 11 (laços de amor); Mt 11,25-30 ("manso e humilde de coração").</li>
+<li><strong>Da vigilância:</strong> Mc 13,33-37 ("Vigiai"); o Salmo 95 ("Hoje, se ouvirdes a sua voz, não endureçais o coração").</li>
+<li><strong>Da misericórdia:</strong> Lc 15,3-7 (a ovelha perdida); Is 63–64 ("Vós sois o oleiro, nós o barro").</li>
+<li><strong>Da Eucaristia e da unidade:</strong> Jo 17 (a oração sacerdotal); Lc 5,33-39 (vinho novo em odres novos).</li>
+<li><strong>Do louvor:</strong> o Salmo 117(116) ou o Salmo 103(102),1-13, rezados em dois coros.</li>
+</ul>
+<p><strong>Como ler.</strong> Uma leitura bem feita vale mais do que três leituras corridas. O método da leitura orante ajuda muito, e pode ser feito em voz alta pelo animador ou em silêncio por cada um:</p>
+<ol>
+<li><strong>Ler</strong>: o que diz o texto? Leia devagar, duas vezes.</li>
+<li><strong>Meditar</strong>: o que o texto me diz? Pare na palavra que tocou.</li>
+<li><strong>Rezar</strong>: o que eu digo a Deus a partir do texto?</li>
+<li><strong>Contemplar</strong>: fique em silêncio, olhando o Senhor.</li>
+<li><strong>Agir</strong>: que passo concreto esta Palavra me pede?</li>
+</ol>
+<p>A Igreja também recomenda <strong>uma breve homilia ou exortação</strong> sobre a Palavra, para ajudar a compreender melhor o mistério eucarístico. Se não há sacerdote, o animador pode ler uma meditação breve, preparada com antecedência. Um costume excelente, que alguns sacerdotes adotam, é ler a cada mês um trecho do Magistério sobre a Eucaristia ou sobre o Sagrado Coração. Uma frase como esta, de São João Paulo II, sustenta uma meditação inteira: "podemos dizer não só que cada um de nós recebe Cristo, mas também que Cristo recebe cada um de nós".</p>
+<h3 id="o-silencio">O silêncio</h3>
+<p>É o elemento mais esquecido e, talvez, o mais importante. A Igreja pede <strong>tempo suficiente de oração silenciosa</strong> antes da bênção, e deseja que os fiéis permaneçam em silêncio religioso durante a adoração. Uma Hora Santa em que não se para de falar e cantar não dá ao Senhor a chance de falar.</p>
+<p>O silêncio, porém, precisa ser <strong>ensinado</strong>. Muitas pessoas não sabem o que fazer quando tudo se cala. O animador pode ajudar com uma orientação curta antes de cada silêncio, por exemplo:</p>
+<ul>
+<li>"Olhe para Jesus. Não é preciso dizer nada. Deixe que Ele olhe para você."</li>
+<li>"Repita devagar, no coração, a frase do Evangelho que mais o tocou."</li>
+<li>"Apresente ao Senhor, em silêncio, o nome de alguém que está sofrendo."</li>
+<li>"Imagine a cena: a noite, as oliveiras, Jesus prostrado por terra, os amigos dormindo. Fique perto dele."</li>
+</ul>
+<p>Silêncios de três a cinco minutos, bem preparados, são mais frutuosos do que um único silêncio longo para o qual ninguém foi preparado. Num folheto, um pequeno guia de adoração silenciosa ajuda muito quem chega antes da oração comunitária.</p>
+<h3 id="a-reparacao">A reparação</h3>
+<p>A Hora Santa nasceu como hora de reparação. É o momento de oferecer ao Senhor o amor que lhe é recusado, por nós e pelos outros: <strong>amar no lugar de quem não ama</strong>. Três textos servem bem a esse momento, e estão no Apêndice:</p>
+<ul>
+<li>o <strong>Ato de Reparação</strong> de Pio XI, "Dulcíssimo Jesus…", o ato oficial da Igreja, prescrito para a solenidade do Sagrado Coração e muito adequado a toda primeira sexta-feira;</li>
+<li>a oração reparadora <strong>"Nós vos consolaremos, Senhor"</strong>, em forma de ladainha, ótima para a recitação comunitária;</li>
+<li>a <strong>Ladainha do Sagrado Coração</strong>, cujas trinta e três invocações recordam os anos da vida terrena do Senhor.</li>
+</ul>
+<p>Pode-se também dar espaço a uma reparação <strong>pessoal</strong>, em silêncio: cada um oferece a Jesus as próprias faltas de amor e as do mundo.</p>
+<h3 id="a-intercessao">A intercessão</h3>
+<p>Jesus pediu a Hora Santa também "para implorar misericórdia para os pecadores". As preces podem ter uma resposta simples e repetida, como <strong>"Coração de Jesus, tende piedade de nós"</strong>, e abraçar:</p>
+<ul>
+<li>os que estão tristes e sozinhos, como Jesus no Getsêmani;</li>
+<li>os que não conhecem o amor de Deus ou o rejeitam;</li>
+<li>os que estão em agonia, nos hospitais e nas casas;</li>
+<li>os sacerdotes, para que sejam segundo o Coração de Jesus;</li>
+<li>as famílias, sobretudo as consagradas ao Sagrado Coração;</li>
+<li>e, sempre, a <strong>intenção de oração do Papa</strong> para aquele mês.</li>
+</ul>
+<p>Rezar pela intenção do Papa é uma tradição do Apostolado da Oração, fundado em 1844 e hoje chamado Rede Mundial de Oração do Papa. A intenção de cada mês é divulgada com antecedência; convém lê-la por inteiro e ligar a ela as primeiras preces. Depois, reza-se um Pai-Nosso, uma Ave-Maria e um Glória pelas intenções do Santo Padre, o que também é uma das condições da indulgência plenária.</p>
+<h3 id="a-entrega">A entrega</h3>
+<p>A hora se encerra bem com um ato de <strong>entrega</strong> ou <strong>consagração</strong>: a consagração de Santa Margarida Maria, a consagração do gênero humano de Leão XIII, o oferecimento diário ou uma oração final que recolha tudo o que se viveu. É o momento de dizer, com o Senhor no Getsêmani: "não o que eu quero, mas o que tu queres".</p>
+<h3 id="para-o-pai-por-cristo-no-espirito">Para o Pai, por Cristo, no Espírito</h3>
+<p>Um último cuidado. A devoção ao Sagrado Coração é centrada em Cristo, mas Jesus quer conduzir-nos ao Pai. As orações da Hora Santa ganham em verdade quando, ao menos no fim, se voltam <strong>ao Pai, por Cristo, no Espírito Santo</strong>, como faz a própria Ladainha, que depois de trinta e três invocações ao Coração de Jesus termina dizendo: "Deus eterno e todo-poderoso, olhai para o Coração do vosso Filho muito amado…".</p>
+<h3 id="uma-hora-com-o-perfil-de-um-santo">Uma hora com o perfil de um santo</h3>
+<p>Uma Hora Santa pode ganhar a marca de um santo, sem perder o centro. Um grupo franciscano pode rezar os <em>Louvores do Deus Altíssimo</em> e a <em>Oração diante do Crucifixo</em> de São Francisco. Num mês dedicado a um santo do Sagrado Coração, pode-se ler uma página dele. Basta que tudo conduza ao Senhor exposto, e não o substitua.</p>
+<hr />
+<p><em>Para levar consigo.</em> Na sua próxima Hora Santa, experimente fazer menos e ficar mais: uma só leitura, lida devagar, e um silêncio de verdade. Depois, anote numa linha o que o Senhor lhe disse.</p>
+<hr />
+<h2 id="capitulo-7-a-equipe">Capítulo 7 — A equipe</h2>
+<p>Uma Hora Santa comunitária é obra de muitas mãos. Quando cada um sabe o que fazer, a oração flui e ninguém percebe a organização. Quando ninguém sabe, a assembleia fica olhando para o altar à espera de alguém que não vem.</p>
+<h3 id="as-funcoes">As funções</h3>
+<table class="long-table">
+<thead>
+<tr>
+<th>Função</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Presidente</strong></td>
+<td>O sacerdote ou o diácono, quando há exposição com bênção; ou o ministro designado, que só expõe e repõe, sem bênção; ou um leigo, na Hora Santa sem exposição</td>
+</tr>
+<tr>
+<td><strong>Coordenador</strong></td>
+<td>Combina tudo com o pároco, escolhe o roteiro, distribui as funções, prepara o folheto</td>
+</tr>
+<tr>
+<td><strong>Animador</strong></td>
+<td>Conduz a oração: anuncia os momentos, lê as introduções e as meditações, orienta os silêncios</td>
+</tr>
+<tr>
+<td><strong>Leitores</strong></td>
+<td>Proclamam os trechos da Palavra e as preces; ensaiam a leitura antes</td>
+</tr>
+<tr>
+<td><strong>Canto</strong></td>
+<td>Escolhe e ensaia os cantos de cada momento; sustenta os refrões</td>
+</tr>
+<tr>
+<td><strong>Liturgia e sacristia</strong></td>
+<td>Prepara o altar, a toalha, o corporal, as velas, o ostensório ou a píxide, o véu umeral e o incenso, conforme o ritual e o que o presidente pedir</td>
+</tr>
+<tr>
+<td><strong>Acolhida</strong></td>
+<td>Recebe quem chega, entrega o folheto, ajuda os idosos e quem vem pela primeira vez</td>
+</tr>
+<tr>
+<td><strong>Escala</strong></td>
+<td>Organiza os turnos de adoradores, se a exposição continuar além da Hora Santa</td>
+</tr>
+</tbody>
+</table>
+<p>Uma mesma pessoa pode acumular funções num grupo pequeno. O importante é que ninguém tenha de improvisar.</p>
+<h3 id="uma-semana-antes">Uma semana antes</h3>
+<ul>
+<li>Data, horário e forma (com ou sem exposição, com ou sem bênção) combinados com o pároco.</li>
+<li>Presidente confirmado. Se houver sacerdote ou diácono, saber se ele dará a bênção.</li>
+<li>Roteiro escolhido e adaptado ao tempo litúrgico e à intenção do Papa do mês.</li>
+<li>Leitores e equipe de canto definidos; cantos ensaiados.</li>
+<li>Folheto preparado e revisado.</li>
+<li>Aviso dado nas Missas do domingo anterior.</li>
+</ul>
+<h3 id="no-dia-uma-hora-antes">No dia, uma hora antes</h3>
+<ul>
+<li>Igreja aberta, limpa e silenciosa.</li>
+<li>Altar coberto com a toalha; corporal estendido, se houver exposição.</li>
+<li>Ostensório ou píxide, véu umeral, turíbulo e incenso, conforme o presidente pedir.</li>
+<li><strong>Velas</strong>: de quatro a seis, se o Santíssimo for exposto no ostensório; ao menos duas, se na píxide.</li>
+<li>Imagem do Sagrado Coração em destaque, <strong>sem ocupar o lugar do Santíssimo</strong>.</li>
+<li>Microfones testados; iluminação suave, mas suficiente para ler.</li>
+<li>Bíblia ou lecionário marcados nos trechos do dia.</li>
+<li>Folhetos na entrada.</li>
+<li>Horário de término conferido: <strong>o Santíssimo deve ser reposto antes de a Missa começar</strong>.</li>
+</ul>
+<h3 id="os-cantos">Os cantos</h3>
+<p>O que importa não é a quantidade de cantos, mas que cada um esteja no seu momento. Prefira cantos <strong>conhecidos da comunidade</strong> e aprovados para a liturgia e a adoração, como os do repertório da CNBB e hinos tradicionais como <em>Coração Santo</em>. Evite traduzir às pressas hinos de autoria desconhecida.</p>
+<table class="long-table">
+<thead>
+<tr>
+<th>Momento</th>
+<th>Tipo de canto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exposição</td>
+<td>Canto eucarístico de adoração (o tradicional é o <em>O Salutaris</em>)</td>
+</tr>
+<tr>
+<td>Entre os trechos da Palavra</td>
+<td>Refrões curtos e meditativos, que se repetem</td>
+</tr>
+<tr>
+<td>Reparação</td>
+<td>Canto penitencial ou de súplica</td>
+</tr>
+<tr>
+<td>Antes da bênção</td>
+<td>Hino eucarístico: "Tão sublime Sacramento" ou outro aprovado</td>
+</tr>
+<tr>
+<td>Reposição</td>
+<td>Aclamação ou canto eucarístico</td>
+</tr>
+<tr>
+<td>Depois da reposição</td>
+<td>Canto a Nossa Senhora ou ao Sagrado Coração</td>
+</tr>
+</tbody>
+</table>
+<h3 id="o-folheto">O folheto</h3>
+<p>Um bom folheto é metade da participação. Ele deve trazer, ao menos:</p>
+<ul>
+<li>o horário e a forma da celebração;</li>
+<li>um parágrafo sobre a origem e o sentido da Hora Santa;</li>
+<li>um pequeno guia para a adoração silenciosa;</li>
+<li>o roteiro com as respostas da assembleia em destaque;</li>
+<li>a intenção do Papa do mês;</li>
+<li>as orações que serão rezadas juntos;</li>
+<li>um compromisso simples para o mês.</li>
+</ul>
+<h3 id="a-linguagem-dos-avisos">A linguagem dos avisos</h3>
+<p>Quem conduz forma a fé dos outros com as palavras que escolhe. Alguns cuidados:</p>
+<ul>
+<li>Diga <strong>"promessa"</strong> e <strong>"esperança firme"</strong>, nunca "garantia" ou "bilhete para o céu", ao falar da Grande Promessa.</li>
+<li>Não anuncie uma "indulgência plenária das primeiras sextas". Diga, com exatidão: "quem adorar o Santíssimo por pelo menos meia hora pode lucrar indulgência plenária, nas condições habituais".</li>
+<li>Não diga que Jesus pediu a Hora Santa "na primeira sexta-feira": Ele a pediu na noite de quinta para sexta, e a primeira sexta é uma adaptação pastoral.</li>
+<li><strong>Proponha sem impor.</strong> As revelações privadas não obrigam, e ninguém deve se sentir menos católico por não fazer a Hora Santa.</li>
+<li>Ao indicar vídeos, livretos ou orações aos fiéis, verifique a origem. Prefira material de paróquias, dioceses e institutos em plena comunhão com a Igreja.</li>
+</ul>
+<h3 id="a-escala-de-adoracao">A escala de adoração</h3>
+<p>Se a exposição continuar além da Hora Santa, por exemplo o dia inteiro da primeira sexta-feira, organize uma escala com turnos de meia hora ou de uma hora, de modo que <strong>sempre haja adoradores presentes</strong>, ao menos em turnos. Deixe uma folha de inscrição na entrada da igreja algumas semanas antes. Quem se inscreve para meia hora já está, sem saber, preparando o seu coração para a indulgência da adoração.</p>
+<h3 id="depois-avaliar">Depois: avaliar</h3>
+<p>Uma equipe que aprende a cada mês melhora a cada mês. Reserve dez minutos depois da celebração, ou uma conversa durante a semana, para perguntar: o que ajudou a rezar? o que atrapalhou? o silêncio foi suficiente? os cantos estavam no tom? quem assume cada função no próximo mês?</p>
+<hr />
+<p><em>Para levar consigo.</em> Se você ainda não faz parte da equipe da Hora Santa da sua paróquia, ofereça-se para uma função pequena: acolher, ler, cantar ou inscrever-se na escala. Servir a hora também é vigiar.</p>
+<hr />
+<h2 id="capitulo-8-cinco-roteiros-completos">Capítulo 8 — Cinco roteiros completos</h2>
+<p>Os roteiros a seguir podem ser usados como estão ou adaptados. Os textos das orações indicadas estão no Apêndice. Os tempos são aproximados.</p>
+<h3 id="roteiro-a-hora-santa-pessoal-60-minutos">Roteiro A — Hora Santa pessoal (60 minutos)</h3>
+<p>Diante do sacrário, do Santíssimo exposto ou, em casa, diante de uma imagem de Jesus. Divida a hora em seis partes de cerca de dez minutos.</p>
+<ol>
+<li><strong>Entrar na presença.</strong> Sinal da cruz. Fique alguns minutos em silêncio. Diga: "Senhor, estou aqui para vigiar convosco. Quero consolar-vos e amar-vos."</li>
+<li><strong>Ler.</strong> Leia devagar Mc 14,32-42. Pare no versículo que mais o tocar.</li>
+<li><strong>Contemplar.</strong> Imagine a cena: a noite, as oliveiras, Jesus prostrado por terra, os amigos dormindo. Olhe para Jesus. Não é preciso dizer nada.</li>
+<li><strong>Consolar e reparar.</strong> Ofereça a Jesus o seu amor por todos os que não o amam, e por você mesmo, nas vezes em que dormiu. Reze o Ato de Reparação ou fale com as suas palavras.</li>
+<li><strong>Interceder.</strong> Apresente os pecadores, os doentes, os que sofrem, a sua família, os sacerdotes, a intenção do Papa do mês. Como Jesus no Getsêmani, entregue tudo ao Pai: "não o que eu quero, mas o que tu queres".</li>
+<li><strong>Entregar-se.</strong> Reze a Ladainha do Sagrado Coração ou uma dezena do terço, meditando a agonia no Horto. Termine com a consagração de Santa Margarida Maria ou com o oferecimento do dia seguinte.</li>
+</ol>
+<h3 id="roteiro-b-hora-santa-em-familia-30-a-60-minutos">Roteiro B — Hora Santa em família (30 a 60 minutos)</h3>
+<p>Na sala, diante da imagem do Sagrado Coração, com uma vela acesa. Um membro da família conduz.</p>
+<ol>
+<li><strong>Canto</strong> simples, que todos conheçam.</li>
+<li><strong>Abertura</strong> (quem conduz): "Esta noite queremos fazer companhia a Jesus, que rezou sozinho no Jardim das Oliveiras. Ele pediu aos amigos: fiquem comigo. Nós queremos ficar."</li>
+<li><strong>Evangelho:</strong> Lc 22,39-46, lido por um dos filhos ou por quem souber ler bem.</li>
+<li><strong>Silêncio</strong> de três minutos. Para as crianças maiores e os adolescentes: "Feche os olhos e imagine Jesus no jardim. Um anjo veio consolá-lo. Você pode ser esse anjo."</li>
+<li><strong>Partilha breve:</strong> cada um diz uma palavra do Evangelho ou o nome de alguém por quem quer rezar.</li>
+<li><strong>Preces espontâneas</strong>, com a resposta: "Coração de Jesus, tende piedade de nós."</li>
+<li><strong>Oração de reparação em família:</strong> "Senhor Jesus, nós vos pedimos perdão pelas vezes em que não fomos bons uns com os outros e pelas pessoas que não vos amam. Queremos amar-vos por elas. Amém."</li>
+<li><strong>Pai-Nosso</strong>, de mãos dadas.</li>
+<li><strong>Ave-Maria</strong> e um canto a Nossa Senhora.</li>
+<li><strong>Bênção dos pais</strong> sobre os filhos, com o sinal da cruz na testa.</li>
+</ol>
+<h3 id="roteiro-c-comunitaria-sem-exposicao-60-minutos">Roteiro C — Comunitária, sem exposição (60 minutos)</h3>
+<p>Diante do sacrário fechado, conduzida por um leigo (coordenador ou animador), com leitores e equipe de canto.</p>
+<ol>
+<li><strong>Canto de entrada</strong> (adoração).</li>
+<li><strong>Abertura</strong> (animador): "Irmãos, estamos aqui para vigiar com Jesus. Ele pediu a Santa Margarida Maria uma hora de companhia na sua agonia. Queremos responder ao seu pedido, consolar o seu Coração e pedir misericórdia para o mundo."</li>
+<li><strong>Invocação do Espírito Santo</strong> (canto ou oração).</li>
+<li><strong>Primeiro momento: Mc 14,32-34.</strong> Silêncio (3 min). Refrão. Meditação breve: Jesus não esconde a sua tristeza; pede companhia. Quantas vezes eu o deixei sozinho?</li>
+<li><strong>Segundo momento: Mc 14,35-36.</strong> Silêncio. Refrão. Meditação: o Coração de Jesus se entrega à vontade do Pai. Que vontade minha preciso entregar?</li>
+<li><strong>Terceiro momento: Mc 14,37-38.</strong> Silêncio. Refrão. Meditação: Jesus não acusa com dureza; desperta com amor. "O espírito está pronto, mas a carne é fraca."</li>
+<li><strong>Quarto momento: Mc 14,39-42.</strong> Silêncio. Refrão. Meditação: "Levantai-vos, vamos!" A oração dá coragem para a missão.</li>
+<li><strong>Ato de reparação</strong> (todos). Canto penitencial.</li>
+<li><strong>Preces</strong> (leitor), com a resposta "Coração de Jesus, tende piedade de nós": pelos tristes e sozinhos; pelos que não conhecem o amor de Deus; pelos que estão em agonia; pelos sacerdotes; pela intenção do Papa do mês (ler a intenção); pelas famílias consagradas ao Sagrado Coração; preces espontâneas.</li>
+<li><strong>Pelas intenções do Papa:</strong> Pai-Nosso, Ave-Maria e Glória.</li>
+<li><strong>Ladainha do Sagrado Coração</strong> ou uma dezena do terço (a agonia no Horto).</li>
+<li><strong>Oração final</strong> (animador): "Senhor Jesus, que no Jardim das Oliveiras procurastes consolo e encontrastes os amigos dormindo, recebei esta hora de vigília como pequena resposta ao vosso amor. Na comunhão da primeira sexta-feira, queremos receber-vos com o coração desperto. Vós que viveis e reinais pelos séculos dos séculos. Amém."</li>
+<li><strong>Canto final</strong> a Nossa Senhora.</li>
+</ol>
+<h3 id="roteiro-d-comunitaria-com-exposicao-e-bencao-60-minutos">Roteiro D — Comunitária, com exposição e bênção (60 minutos)</h3>
+<p>Presidida por sacerdote ou diácono.</p>
+<ol>
+<li><strong>Exposição.</strong> Canto eucarístico. O presidente traz o Santíssimo e o coloca no ostensório (ou deixa a píxide) sobre o altar; genuflexão; incensação, se houver ostensório. Aclamação: "Graças e louvores se deem a todo o momento. — Ao Santíssimo e diviníssimo Sacramento."</li>
+<li><strong>Adoração em silêncio</strong> (5 min), com uma orientação breve do animador.</li>
+<li><strong>Palavra.</strong> Os quatro momentos de Mc 14,32-42, como no Roteiro C (números 4 a 7). O presidente pode fazer uma breve exortação no lugar das meditações.</li>
+<li><strong>Ato de reparação</strong> (todos). Canto penitencial.</li>
+<li><strong>Preces</strong>, como no Roteiro C.</li>
+<li><strong>Pelas intenções do Papa:</strong> Pai-Nosso, Ave-Maria e Glória.</li>
+<li><strong>Ladainha do Sagrado Coração</strong> ou um momento de louvor com um salmo em dois coros, como o Sl 117(116) ou o Sl 103(102),1-13.</li>
+<li><strong>Silêncio</strong> (5 min).</li>
+<li><strong>Bênção.</strong> O presidente vai ao altar, genuflete e ajoelha-se. Canta-se o "Tão sublime Sacramento" ou outro hino eucarístico; ele incensa o Santíssimo. Versículo "Do céu lhes destes o Pão". O presidente levanta-se: "Oremos", breve silêncio, oração. Põe o véu umeral, genuflete e abençoa o povo com o Santíssimo, em silêncio.</li>
+<li><strong>Louvores Divinos.</strong></li>
+<li><strong>Reposição.</strong> O Santíssimo volta ao sacrário; genuflexão; aclamação ou canto.</li>
+<li><strong>Canto final</strong> a Nossa Senhora, depois da reposição.</li>
+</ol>
+<h3 id="roteiro-e-exposicao-pelo-ministro-antes-da-missa-da-primeira-sexta-feira">Roteiro E — Exposição pelo ministro, antes da Missa da primeira sexta-feira</h3>
+<p>Este é o formato de muitas paróquias: a adoração começa uma hora antes da Missa vespertina da primeira sexta-feira, o Santíssimo é exposto por um ministro extraordinário da comunhão designado, e a comunidade passa da adoração à Missa, onde faz a comunhão reparadora. Os horários abaixo são um exemplo, para uma Missa às 19h30.</p>
+<p><strong>18h30 — Exposição e adoração silenciosa (30 min)</strong></p>
+<ol>
+<li><strong>Canto eucarístico.</strong> O ministro abre o sacrário, faz a genuflexão e expõe o Santíssimo no ostensório ou na píxide, sobre o altar com a toalha e o corporal. Velas acesas.</li>
+<li><strong>Aclamação:</strong> "Graças e louvores se deem a todo o momento. — Ao Santíssimo e diviníssimo Sacramento."</li>
+<li><strong>Adoração silenciosa</strong>, com um guia no folheto: um parágrafo sobre o sentido da hora, o Evangelho do mês para ler devagar e duas ou três perguntas para a meditação pessoal. Quem chega mais cedo já encontra o Senhor exposto e pode confessar-se, se houver sacerdote atendendo.</li>
+</ol>
+<p><strong>19h00 — Oração comunitária (cerca de 20 min)</strong></p>
+<ol start="4">
+<li><strong>Abertura</strong> do animador, recordando o pedido do Getsêmani e a intenção da hora.</li>
+<li><strong>Palavra em quatro momentos</strong>, com silêncios curtos e refrões, como no Roteiro C, de forma mais breve.</li>
+<li><strong>Ato de reparação</strong> (todos).</li>
+<li><strong>Preces</strong>, ligando as primeiras à intenção do Papa do mês; Pai-Nosso, Ave-Maria e Glória pelas intenções do Santo Padre.</li>
+<li><strong>Ladainha do Sagrado Coração</strong> ou consagração.</li>
+</ol>
+<p><strong>19h20 — Encerramento e reposição</strong></p>
+<ol start="9">
+<li><strong>Com sacerdote ou diácono:</strong> ele se aproxima do altar e faz o rito da bênção: hino eucarístico, versículo, oração, bênção em silêncio; depois, a reposição.</li>
+<li><strong>Na ausência de sacerdote ou diácono:</strong> o ministro <strong>não dá a bênção</strong>. Canta-se o "Tão sublime Sacramento" ou outro canto eucarístico, reza-se uma oração final, e o ministro repõe o Santíssimo no sacrário, faz a genuflexão, enquanto todos repetem a aclamação "Graças e louvores…".</li>
+<li><strong>Canto final</strong> a Nossa Senhora ou ao Sagrado Coração, já com o Santíssimo no sacrário.</li>
+</ol>
+<p><strong>19h30 — Santa Missa</strong>, com a comunhão reparadora da primeira sexta-feira.</p>
+<p>Três cuidados próprios deste roteiro:</p>
+<ul>
+<li><strong>A reposição deve terminar antes de a Missa começar.</strong> Não pode haver exposição no mesmo recinto durante a Missa.</li>
+<li>Com <strong>pelo menos meia hora de adoração</strong>, os fiéis podem lucrar indulgência plenária, nas condições habituais. A confissão antes e a comunhão na Missa completam as condições.</li>
+<li>O ato de reparação ou de consagração <strong>não deve ser inserido dentro da Missa</strong> por conta da equipe. A Missa segue o Missal. Se se quiser rezar um ato depois da Missa, faça-se após a despedida, antes do canto final, de acordo com o celebrante.</li>
+</ul>
+<hr />
+<p><em>Para levar consigo.</em> Escolha o roteiro que corresponde à sua realidade e reze-o uma vez, com calma, antes de conduzi-lo com outros. Quem conduz uma hora que já rezou conduz de outro modo.</p>
+<hr />
+<h2 id="capitulo-9-ao-longo-do-ano">Capítulo 9 — Ao longo do ano</h2>
+<p>A Hora Santa da primeira sexta-feira acontece doze vezes por ano, e cada uma cai num momento diferente da vida da Igreja. As devoções devem estar em harmonia com a liturgia, nascer dela e levar o povo de volta a ela. Por isso, uma equipe atenta deixa o calendário litúrgico entrar na sua hora.</p>
+<h3 id="os-tempos-liturgicos">Os tempos litúrgicos</h3>
+<ul>
+<li><strong>Advento.</strong> A vigilância é o próprio tema do tempo. O Evangelho "Vigiai" (Mc 13,33-37) une naturalmente a espera do Senhor que vem e a vigília com o Senhor em agonia.</li>
+<li><strong>Natal.</strong> O Coração que vamos adorar é o de um Deus que quis ter um coração humano. A Hora Santa pode ser mais contemplativa e de ação de graças.</li>
+<li><strong>Quaresma.</strong> É o tempo mais próprio da Hora Santa. A Paixão está no centro da liturgia, e os mistérios dolorosos e os atos de reparação ganham força especial.</li>
+<li><strong>Páscoa.</strong> A chaga do lado não se fechou na Páscoa: ela permanece aberta no Ressuscitado. Os relatos em que Jesus mostra as mãos e o lado aos discípulos e convida Tomé a tocá-lo (Jo 20,20.27) estão na raiz da devoção ao Coração de Cristo. A Hora Santa pascal pode contemplar o Coração glorioso, ferido e vivo.</li>
+<li><strong>Tempo Comum.</strong> É o tempo da perseverança, em que a Hora Santa segue o ritmo simples do Evangelho de cada domingo e da intenção do Papa de cada mês.</li>
+</ul>
+<h3 id="junho-e-a-solenidade-do-sagrado-coracao">Junho e a solenidade do Sagrado Coração</h3>
+<p>A devoção do <strong>mês de junho</strong> ao Sagrado Coração, longamente praticada em particular, foi aprovada por Pio IX em 1873 e recomendada por Leão XIII em 1899. É o mês em que a Hora Santa pode ser mais solene.</p>
+<p>A <strong>solenidade do Sagrado Coração</strong> é celebrada na sexta-feira que se segue ao segundo domingo depois de Pentecostes, isto é, na sexta-feira depois da semana de Corpus Christi, conforme o pedido de Paray. Suas leituras mudam conforme o ano do ciclo litúrgico e servem muito bem à Hora Santa:</p>
+<table>
+<thead>
+<tr>
+<th>Ano</th>
+<th>1ª leitura</th>
+<th>2ª leitura</th>
+<th>Evangelho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Dt 7,6-11</td>
+<td>1Jo 4,7-16</td>
+<td>Mt 11,25-30</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Os 11,1.3-4.8c-9</td>
+<td>Ef 3,8-12.14-19</td>
+<td>Jo 19,31-37</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Ez 34,11-16</td>
+<td>Rm 5,5b-11</td>
+<td>Lc 15,3-7</td>
+</tr>
+</tbody>
+</table>
+<p>Nesse dia, o <strong>Ato de Reparação</strong> de Pio XI, recitado publicamente, dá indulgência plenária. E desde 1995 a solenidade é também o <strong>Dia Mundial de Oração pela Santificação dos Sacerdotes</strong>: uma Hora Santa pelos padres é o modo mais natural de vivê-lo. O Cura d'Ars dizia: "O sacerdócio é o amor do Coração de Jesus".</p>
+<h3 id="cristo-rei">Cristo Rei</h3>
+<p>Na solenidade de <strong>Cristo Rei</strong>, no fim do ano litúrgico, a consagração do gênero humano composta para Leão XIII, recitada publicamente, também dá indulgência plenária. São Pio X mandou renová-la todos os anos, e São João Paulo II lembrou que ainda hoje é bom renová-la. Se a primeira sexta-feira de novembro estiver próxima, a Hora Santa pode prepará-la; em todo caso, vale a pena incluí-la ao menos uma vez por ano.</p>
+<h3 id="a-missa-votiva-na-primeira-sexta-feira">A Missa votiva na primeira sexta-feira</h3>
+<p>O Missal Romano tem uma <strong>Missa votiva do Sagrado Coração de Jesus</strong>. As normas do Missal permitem as Missas votivas dos mistérios do Senhor nos <strong>dias feriais do Tempo Comum</strong>, mesmo quando ocorre uma memória facultativa, para satisfazer a piedade dos fiéis. Quando a primeira sexta-feira cair num desses dias, a equipe pode <strong>pedir</strong>, sem exigir, que o sacerdote celebre a Missa votiva. Em outros tempos, ou havendo memória obrigatória, festa ou solenidade, segue-se a liturgia do dia. A decisão é do celebrante.</p>
+<h3 id="um-calendario-para-comecar">Um calendário para começar</h3>
+<p>Para quem quer começar as nove primeiras sextas-feiras e fazer a Hora Santa em cada uma, eis um exemplo concreto, começando em outubro de 2026:</p>
+<table class="long-table">
+<thead>
+<tr>
+<th>Nº</th>
+<th>Data</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2 de outubro de 2026</td>
+<td>Mês do Rosário</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6 de novembro de 2026</td>
+<td>Perto de Cristo Rei</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4 de dezembro de 2026</td>
+<td>Advento</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1º de janeiro de 2027</td>
+<td>Solenidade de Santa Maria, Mãe de Deus: confirme o horário</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5 de fevereiro de 2027</td>
+<td>Tempo Comum</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5 de março de 2027</td>
+<td>Quaresma</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2 de abril de 2027</td>
+<td>Oitava da Páscoa: confirme o horário</td>
+</tr>
+<tr>
+<td>8</td>
+<td>7 de maio de 2027</td>
+<td>Tempo pascal</td>
+</tr>
+<tr>
+<td>9</td>
+<td>4 de junho de 2027</td>
+<td><strong>Solenidade do Sagrado Coração</strong> (ano B)</td>
+</tr>
+</tbody>
+</table>
+<p>A nona coincide com a própria solenidade do Sagrado Coração, quando a Igreja lerá Oseias 11 e o lado aberto de João 19.</p>
+<h3 id="para-cada-idade">Para cada idade</h3>
+<ul>
+<li><strong>Crianças:</strong> a Hora Santa em família, curta, com a imagem do anjo que consola Jesus, é a melhor porta de entrada.</li>
+<li><strong>Adolescentes:</strong> uma hora pode parecer longa. Comece com meia hora, com refrões e silêncios curtos, e aumente aos poucos. Dê-lhes funções: ler, cantar, acolher.</li>
+<li><strong>Adultos:</strong> ofereçam-se para a escala de adoração e para as funções da equipe.</li>
+<li><strong>Idosos e doentes:</strong> quem não pode ajoelhar-se faz uma inclinação profunda e reza sentado, sem escrúpulo. Quem não pode sair de casa faz a Hora Santa diante da imagem do Sagrado Coração, unido à comunidade, e faz a comunhão espiritual.</li>
+</ul>
+<h3 id="depois-da-primeira-sexta-o-primeiro-sabado">Depois da primeira sexta, o primeiro sábado</h3>
+<p>A primeira sexta-feira, dedicada ao Coração de Jesus, é seguida naturalmente pelo primeiro sábado, dedicado ao Imaculado Coração de Maria. São devoções irmãs, mas distintas: as primeiras sextas são <strong>nove</strong>, com a comunhão reparadora; os primeiros sábados são <strong>cinco</strong>, com confissão, comunhão, terço e quinze minutos de meditação. Quem faz as duas vive, em dois dias seguidos, o mistério dos dois Corações.</p>
+<hr />
+<p><em>Para levar consigo.</em> Abra o calendário e marque as próximas nove primeiras sextas-feiras. Ao lado de cada uma, anote o tempo litúrgico. Você terá, sem perceber, um pequeno plano de vida para os próximos meses.</p>
+<hr />
+<h2 id="capitulo-10-perguntas-que-todos-fazem">Capítulo 10 — Perguntas que todos fazem</h2>
+<p><strong>1. Precisa durar exatamente uma hora?</strong>
+O pedido de Paray foi de uma hora, e é bom guardar esse número como ideal. Mas a Igreja não transforma o relógio em lei. Meia hora de adoração já basta para a indulgência plenária, e uma Hora Santa em família pode durar trinta minutos. O que importa é que seja um tempo inteiro, contínuo e dado de verdade ao Senhor.</p>
+<p><strong>2. Quinta-feira ou primeira sexta-feira?</strong>
+As duas são legítimas. O pedido original foi da noite de quinta para sexta; fazer a Hora Santa na primeira sexta é uma adaptação pastoral muito difundida. Escolha o que for possível para a comunidade.</p>
+<p><strong>3. Não há padre nem diácono. Podemos fazer a Hora Santa?</strong>
+Sim. Diante do sacrário fechado, conduzida por um leigo, ou com a exposição feita por um ministro extraordinário da comunhão designado, que expõe e repõe o Santíssimo, mas <strong>não dá a bênção</strong>.</p>
+<p><strong>4. O ministro extraordinário pode dar a bênção com o Santíssimo?</strong>
+Não. A bênção é reservada ao sacerdote e ao diácono. O ministro leigo encerra com um canto eucarístico, uma oração e a reposição.</p>
+<p><strong>5. Pode haver Missa com o Santíssimo exposto?</strong>
+Não no mesmo recinto. O Santíssimo deve ser reposto antes da Missa. Na exposição prolongada, a Missa pode ser celebrada numa capela separada, desde que alguns fiéis permaneçam em adoração.</p>
+<p><strong>6. Posso sair da igreja durante a exposição?</strong>
+Pode, desde que o Santíssimo não fique sozinho. A Igreja pede que nunca fique exposto sem vigilância suficiente. Na adoração prolongada, só saia quando chegar quem o substitui na escala.</p>
+<p><strong>7. É obrigatório ficar de joelhos?</strong>
+Não. A genuflexão ao chegar e ao sair é o gesto pedido diante do Santíssimo; permanecer ajoelhado durante a adoração é um costume belo, mas cada um faz conforme as suas forças. Quem não pode ajoelhar-se faz uma inclinação profunda.</p>
+<p><strong>8. Genuflexão com um joelho ou com os dois?</strong>
+Com um joelho só, tanto diante do sacrário quanto diante do Santíssimo exposto. É a norma atual da Igreja.</p>
+<p><strong>9. Podemos rezar o terço diante do Santíssimo exposto?</strong>
+Sim, a Igreja o permite expressamente, desde que se destaque a contemplação dos mistérios de Cristo, de preferência com leituras bíblicas. Outras devoções a Nossa Senhora e aos santos ficam melhor depois da reposição.</p>
+<p><strong>10. A imagem do Sagrado Coração pode ficar no altar?</strong>
+Pode ficar em lugar de destaque, mas sem ocupar o lugar do Santíssimo nem desviar dele os olhares. Adoramos a Cristo presente no Sacramento; a imagem nos ajuda a contemplar o seu amor.</p>
+<p><strong>11. É preciso ter incenso?</strong>
+Na exposição com o ostensório, o ritual prevê o incenso; com a píxide, é facultativo. Siga o que o presidente e as normas diocesanas indicarem.</p>
+<p><strong>12. Quantas velas?</strong>
+De quatro a seis, se o Santíssimo é exposto no ostensório; ao menos duas, se na píxide.</p>
+<p><strong>13. Existe indulgência plenária pelas primeiras sextas-feiras?</strong>
+Não na disciplina atual da Igreja. A indulgência plenária ligada à Hora Santa vem da <strong>adoração por pelo menos meia hora</strong>, nas condições habituais.</p>
+<p><strong>14. Posso fazer a Hora Santa em casa?</strong>
+Sim. O próprio Santuário de Paray-le-Monial propõe essa forma, sem exposição, sozinho ou em família, diante da imagem de Jesus.</p>
+<p><strong>15. A Hora Santa substitui a comunhão das primeiras sextas?</strong>
+Não. São duas práticas distintas e complementares. A Grande Promessa pede a <strong>comunhão</strong> sacramental nas primeiras sextas-feiras de nove meses seguidos. A Hora Santa prepara e prolonga essa comunhão. Quem não pode comungar sacramentalmente pode fazer a comunhão espiritual, mas ela não substitui a comunhão sacramental pedida pela promessa.</p>
+<p><strong>16. E se eu me distrair o tempo todo?</strong>
+Acontece com todos. Os apóstolos dormiram no Getsêmani, e Jesus não os mandou embora: voltou a acordá-los. Cada vez que perceber a distração, volte, sem drama, ao rosto do Senhor. Uma hora de distrações combatidas com paciência também é uma hora de vigília.</p>
+<hr />
+<p><em>Para levar consigo.</em> Qual destas perguntas você já ouviu na sua comunidade? Leve a resposta à próxima reunião da equipe. Muitas confusões se desfazem com uma frase clara.</p>
+<hr />
+<h2 class="apx" id="apendice-textos-e-oracoes">Apêndice — Textos e orações</h2>
+<p>Reunimos aqui os textos do rito e as orações indicadas nos roteiros, na ordem em que costumam aparecer.</p>
+<h3 id="1-textos-do-rito-da-exposicao-e-da-bencao">1. Textos do rito da exposição e da bênção</h3>
+<p><strong>Aclamação na exposição e na reposição</strong></p>
+<blockquote>
+<p>V. Graças e louvores se deem a todo o momento.
+R. <strong>Ao Santíssimo e diviníssimo Sacramento.</strong></p>
+</blockquote>
+<p><strong>Hino antes da bênção</strong> (só com sacerdote ou diácono; sem eles, pode ser cantado como canto eucarístico antes da reposição)</p>
+<blockquote>
+<p>Tão sublime Sacramento
+adoremos neste altar,
+pois o Antigo Testamento
+deu ao Novo o seu lugar.
+Venha a fé, por suplemento,
+os sentidos completar!</p>
+<p>Ao eterno Pai cantemos
+e a Jesus, o Salvador!
+Ao Espírito exaltemos,
+na Trindade eterno amor!
+Ao Deus Uno e Trino demos
+a alegria do louvor! Amém.</p>
+<p>V. Do céu lhes destes o Pão.
+R. <strong>Que contém todo o sabor.</strong></p>
+</blockquote>
+<p><strong>Oração</strong> (o sacerdote ou diácono; breve silêncio depois de "Oremos")</p>
+<p>Oremos. Senhor Jesus Cristo, neste admirável Sacramento nos deixastes o memorial da vossa paixão. Dai-nos venerar com tão grande amor o mistério do vosso Corpo e do vosso Sangue, que possamos colher continuamente os frutos da vossa redenção. Vós que viveis e reinais para sempre. <strong>Amém.</strong></p>
+<p><em>Segue-se a bênção com o Santíssimo, em silêncio.</em></p>
+<p><strong>Louvores Divinos</strong> (cada frase é repetida pela assembleia)</p>
+<blockquote>
+<p>Bendito seja Deus.
+Bendito seja o seu santo nome.
+Bendito seja Jesus Cristo, verdadeiro Deus e verdadeiro homem.
+Bendito seja o nome de Jesus.
+Bendito seja o seu Sacratíssimo Coração.
+Bendito seja o seu preciosíssimo Sangue.
+Bendito seja Jesus no Santíssimo Sacramento do altar.
+Bendito seja o Espírito Santo Paráclito.
+Bendita seja a grande Mãe de Deus, Maria Santíssima.
+Bendita seja a sua santa e Imaculada Conceição.
+Bendita seja a sua gloriosa Assunção.
+Bendito seja o nome de Maria, Virgem e Mãe.
+Bendito seja São José, seu castíssimo esposo.
+Bendito seja Deus nos seus anjos e nos seus santos.</p>
+</blockquote>
+<h3 id="2-ladainha-do-sagrado-coracao-de-jesus">2. Ladainha do Sagrado Coração de Jesus</h3>
+<p><em>Aprovada por Leão XIII para toda a Igreja em 1899. Suas trinta e três invocações recordam os anos da vida terrena do Redentor. Indulgência parcial.</em></p>
+<blockquote>
+<p>Senhor, tende piedade de nós. — Jesus Cristo, tende piedade de nós. — Senhor, tende piedade de nós.
+Jesus Cristo, ouvi-nos. — Jesus Cristo, atendei-nos.
+Deus Pai do céu, <strong>tende piedade de nós.</strong>
+Deus Filho, Redentor do mundo,
+Deus Espírito Santo,
+Santíssima Trindade, que sois um só Deus,</p>
+<p>Coração de Jesus, Filho do Pai eterno,
+Coração de Jesus, formado pelo Espírito Santo no seio da Virgem Mãe,
+Coração de Jesus, unido substancialmente ao Verbo de Deus,
+Coração de Jesus, de majestade infinita,
+Coração de Jesus, templo santo de Deus,
+Coração de Jesus, tabernáculo do Altíssimo,
+Coração de Jesus, casa de Deus e porta do céu,
+Coração de Jesus, fornalha ardente de caridade,
+Coração de Jesus, receptáculo de justiça e de amor,
+Coração de Jesus, cheio de bondade e de amor,
+Coração de Jesus, abismo de todas as virtudes,
+Coração de Jesus, digníssimo de todo louvor,
+Coração de Jesus, rei e centro de todos os corações,
+Coração de Jesus, no qual estão todos os tesouros da sabedoria e da ciência,
+Coração de Jesus, no qual habita toda a plenitude da divindade,
+Coração de Jesus, no qual o Pai pôs todas as suas complacências,
+Coração de Jesus, de cuja plenitude todos nós recebemos,
+Coração de Jesus, desejado das colinas eternas,
+Coração de Jesus, paciente e de muita misericórdia,
+Coração de Jesus, rico para todos os que vos invocam,
+Coração de Jesus, fonte de vida e de santidade,
+Coração de Jesus, propiciação pelos nossos pecados,
+Coração de Jesus, saturado de opróbrios,
+Coração de Jesus, triturado por causa dos nossos crimes,
+Coração de Jesus, feito obediente até a morte,
+Coração de Jesus, transpassado pela lança,
+Coração de Jesus, fonte de toda consolação,
+Coração de Jesus, nossa vida e ressurreição,
+Coração de Jesus, nossa paz e reconciliação,
+Coração de Jesus, vítima dos pecadores,
+Coração de Jesus, salvação dos que em vós esperam,
+Coração de Jesus, esperança dos que morrem em vós,
+Coração de Jesus, delícia de todos os santos, <strong>tende piedade de nós.</strong></p>
+<p>Cordeiro de Deus, que tirais o pecado do mundo, <strong>perdoai-nos, Senhor.</strong>
+Cordeiro de Deus, que tirais o pecado do mundo, <strong>ouvi-nos, Senhor.</strong>
+Cordeiro de Deus, que tirais o pecado do mundo, <strong>tende piedade de nós.</strong></p>
+<p>V. Jesus, manso e humilde de coração,
+R. <strong>Fazei o nosso coração semelhante ao vosso.</strong></p>
+<p>Oremos: Deus eterno e todo-poderoso, olhai para o Coração do vosso Filho muito amado e para os louvores e satisfações que Ele vos oferece em nome dos pecadores; e aos que imploram a vossa misericórdia concedei benigno o perdão, em nome do mesmo Jesus Cristo, vosso Filho, que convosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. Amém.</p>
+</blockquote>
+<p>A invocação "vítima dos pecadores" também pode ser traduzida por "vítima pelos pecados".</p>
+<h3 id="3-oracao-reparadora-nos-vos-consolaremos-senhor">3. Oração reparadora: "Nós vos consolaremos, Senhor"</h3>
+<p><em>Ato de reparação de uso devocional amplo, próprio para ser rezado em comunidade na primeira sexta-feira, diante do Santíssimo exposto.</em></p>
+<p>Divino Salvador Jesus! Dignai-vos baixar um olhar de misericórdia sobre vossos filhos, que, reunidos em um mesmo pensamento de fé, reparação e amor, vêm chorar a vossos pés suas infidelidades e as de seus irmãos, os pobres pecadores!</p>
+<p>Possamos nós, pelas promessas unânimes e solenes que vamos fazer, tocar o vosso divino Coração, e dele alcançar misericórdia para o mundo infeliz e criminoso e para todos aqueles que não têm a felicidade de vos amar!</p>
+<p>Daqui por diante, sim, todos nós vo-lo prometemos:</p>
+<blockquote>
+<p>Do esquecimento e da ingratidão dos homens, <strong>nós vos consolaremos, Senhor!</strong>
+Do abandono em que sois deixado no santo Tabernáculo,
+Dos crimes dos pecadores,
+Do ódio dos ímpios,
+Das blasfêmias que se vomitam contra vós,
+Das injúrias feitas à vossa divindade,
+Dos sacrilégios com que se profana o vosso Sacramento de amor,
+Das imodéstias e irreverências cometidas em vossa presença adorável,
+Da tibieza do maior número de vossos filhos,
+Do desprezo que se faz de vossos convites cheios de amor,
+Das infidelidades daqueles que se dizem vossos amigos,
+Do abuso de vossas graças,
+De nossas próprias infidelidades,
+Da incompreensível dureza de nossos corações,
+De nossa longa demora em vos amar,
+De nossa frouxidão em vosso santo serviço,
+Da amarga tristeza em que sois abismado pela perda das almas,
+Do vosso longo esperar às portas de nossos corações,
+Das amargas repulsas de que sois saciado,
+De vossos suspiros de amor,
+De vossas lágrimas de amor,
+De vosso cativeiro de amor,
+De vosso martírio de amor, <strong>nós vos consolaremos, Senhor!</strong></p>
+</blockquote>
+<p>Oremos: Divino Salvador Jesus, que de vosso Coração deixastes escapar esta queixa dolorosa: "Eu procurei consoladores e não os achei", dignai-vos aceitar o pequeno tributo de nossas consolações e assistir-nos tão poderosamente com o socorro de vossa graça que, para o futuro, fugindo cada vez mais de tudo o que vos poderia desagradar, nos mostremos em tudo, por toda a parte e sempre, vossos filhos, os mais fiéis e devotados. Nós vo-lo pedimos por vós mesmo, que, sendo Deus, com o Pai e o Espírito Santo, viveis e reinais nos séculos dos séculos. Amém.</p>
+<h3 id="4-ato-de-reparacao-ao-sagrado-coracao-de-jesus-pio-xi">4. Ato de Reparação ao Sagrado Coração de Jesus (Pio XI)</h3>
+<p><em>Prescrito por Pio XI em 1928 para a festa do Sagrado Coração. Indulgência parcial; plenária quando recitado publicamente na solenidade do Sagrado Coração.</em></p>
+<p>Dulcíssimo Jesus, cuja infinita caridade para com os homens é por eles tão ingratamente correspondida com esquecimentos, friezas e desprezos, eis-nos aqui prostrados na vossa presença, para vos desagravarmos, com especiais homenagens, da insensibilidade tão insensata e das nefandas injúrias com que é, de toda a parte, alvejado o vosso amorosíssimo Coração.</p>
+<p>Reconhecendo, porém, com a mais profunda dor, que também nós, mais de uma vez, cometemos as mesmas indignidades, para nós, em primeiro lugar, imploramos a vossa misericórdia, prontos a expiar não só as próprias culpas, senão também as daqueles que, errando longe do caminho da salvação, ou se obstinam na sua infidelidade, não vos querendo como pastor e guia, ou, conculcando as promessas do batismo, sacudiram o suavíssimo jugo da vossa santa lei.</p>
+<p>De todos estes tão deploráveis crimes, Senhor, queremos nós hoje desagravar-vos, mas, particularmente, da licença dos costumes e imodéstias do vestido, de tantos laços de corrupção armados à inocência, da violação dos dias santificados, das execrandas blasfêmias contra vós e vossos Santos, dos insultos ao vosso Vigário e a todo o vosso Clero, do desprezo e das horrendas e sacrílegas profanações do Sacramento do divino amor, e, enfim, dos atentados e rebeldias das nações contra os direitos e o magistério da vossa Igreja.</p>
+<p>Oh! se pudéssemos lavar, com o próprio sangue, tantas iniquidades! Entretanto, para reparar a honra divina ultrajada, vos oferecemos, juntamente com os merecimentos da Virgem Mãe, de todos os Santos e almas piedosas, aquela infinita satisfação que vós oferecestes ao Eterno Pai sobre a cruz, e que não cessais de renovar, todos os dias, sobre nossos altares.</p>
+<p>Ajudai-nos, Senhor, com o auxílio da vossa graça, para que possamos, como é nosso firme propósito, com a viveza da fé, com a pureza dos costumes, com a fiel observância da lei e caridade evangélicas, reparar todos os pecados cometidos por nós e por nosso próximo, impedir, por todos os meios, novas injúrias de vossa divina Majestade e atrair ao vosso serviço o maior número de almas possíveis.</p>
+<p>Recebei, ó benigníssimo Jesus, pelas mãos de Maria santíssima reparadora, a espontânea homenagem deste nosso desagravo, e concedei-nos a grande graça de perseverarmos constantes, até à morte, no fiel cumprimento dos nossos deveres e no vosso santo serviço, para que possamos chegar todos à pátria bem-aventurada, onde vós com o Pai e o Espírito Santo viveis e reinais, Deus, por todos os séculos dos séculos. Amém.</p>
+<h3 id="5-ato-de-consagracao-do-genero-humano-ao-sagrado-coracao-leao-xiii">5. Ato de consagração do gênero humano ao Sagrado Coração (Leão XIII)</h3>
+<p><em>Composto para a consagração de 11 de junho de 1899. Indulgência parcial; plenária quando recitado publicamente na solenidade de Jesus Cristo Rei.</em></p>
+<p>Dulcíssimo Jesus, Redentor do gênero humano, lançai sobre nós, que humildemente estamos prostrados na vossa presença, os vossos olhares. Nós somos e queremos ser vossos; e, a fim de podermos viver mais intimamente unidos a vós, cada um de nós se consagra, espontaneamente, neste dia, ao vosso sacratíssimo Coração.</p>
+<p>Muitos há que nunca vos conheceram; muitos, desprezando os vossos mandamentos, vos renegaram. Benigníssimo Jesus, tende piedade de uns e de outros e trazei-os todos ao vosso Sagrado Coração.</p>
+<p>Senhor, sede rei não somente dos fiéis, que nunca de vós se afastaram, mas também dos filhos pródigos, que vos abandonaram; fazei que estes tornem, quanto antes, à casa paterna, para não perecerem de miséria e de fome.</p>
+<p>Sede rei dos que vivem iludidos no erro, ou separados de vós pela discórdia; trazei-os ao porto da verdade e à unidade da fé, a fim de que, em breve, haja um só rebanho e um só pastor.</p>
+<p>Senhor, conservai incólume a vossa Igreja, e dai-lhe uma liberdade segura e sem peias; concedei ordem e paz a todos os povos; fazei que, de um polo a outro do mundo, ressoe uma só voz: Louvado seja o Coração divino, que nos trouxe a salvação; honra e glória a ele, por todos os séculos. Amém.</p>
+<h3 id="6-consagracao-ao-sagrado-coracao-santa-margarida-maria">6. Consagração ao Sagrado Coração (Santa Margarida Maria)</h3>
+<p><em>A fórmula clássica de consagração pessoal, muito própria para quem conclui as nove primeiras sextas-feiras.</em></p>
+<p>Eu, N., vos dou e consagro, ó Sagrado Coração de Jesus Cristo, minha pessoa e minha vida, minhas ações, penas e sofrimentos, para não querer mais servir-me de nenhuma parte de meu ser senão para vos honrar, amar e glorificar.</p>
+<p>É esta minha vontade irrevogável: ser todo vosso e tudo fazer por vosso amor, renunciando de todo o meu coração a tudo quanto vos possa desagradar.</p>
+<p>Tomo-vos, pois, ó Sagrado Coração, por único objeto de meu amor, protetor de minha vida, segurança de minha salvação, remédio de minha fragilidade e de minha inconstância, reparador de todas as imperfeições de minha vida e meu asilo seguro na hora da morte.</p>
+<p>Sede, ó Coração de bondade, minha justificação diante de Deus, vosso Pai, para que desvie de mim sua justa cólera. Ó Coração de amor! Deposito toda a minha confiança em vós, pois tudo temo de minha malícia e de minha fraqueza, mas tudo espero de vossa bondade!</p>
+<p>Extingui em mim tudo o que possa desagradar-vos ou se oponha à vossa vontade. Seja o vosso puro amor tão profundamente impresso em meu coração, que jamais possa eu esquecer-vos, nem separar-me de vós. Suplico, por vosso infinito amor, que meu nome seja escrito em vosso Coração, pois quero fazer consistir toda a minha felicidade e toda a minha glória em viver e morrer como vosso escravo. Amém.</p>
+<h3 id="7-oferecimento-diario">7. Oferecimento diário</h3>
+<p><em>Texto do Apostolado da Oração do Brasil, hoje Rede Mundial de Oração do Papa. Próprio para o fim da Hora Santa, oferecendo o dia seguinte.</em></p>
+<p>Deus, nosso Pai, eu te ofereço todo o dia de hoje: minhas orações e obras, meus pensamentos e palavras, minhas alegrias e sofrimentos, em reparação de nossas ofensas, em união com o Coração de teu Filho, Jesus, que continua a oferecer-se a Ti, na Eucaristia, pela salvação do mundo.
+Que o Espírito Santo, que guiou a Jesus, seja meu guia e meu amparo neste dia para que eu possa ser testemunha do teu amor.
+Com Maria, Mãe de Jesus e da Igreja, rezo especialmente pelas intenções do Santo Padre para este mês…</p>
+<h3 id="8-oracao-pelos-sacerdotes">8. Oração pelos sacerdotes</h3>
+<p><em>Para a solenidade do Sagrado Coração, Dia Mundial de Oração pela Santificação dos Sacerdotes, e para toda primeira sexta-feira.</em></p>
+<p>Senhor Jesus, Bom Pastor, do vosso Coração traspassado nasceram a Eucaristia e o sacerdócio.
+Guardai no vosso Coração os sacerdotes da nossa paróquia, da nossa diocese e do mundo inteiro.
+Dai-lhes um coração semelhante ao vosso: manso e humilde, cheio de misericórdia, capaz de buscar os afastados, de incluir os esquecidos e de se alegrar com os que voltam.
+Sustentai-os no cansaço, consolai-os na solidão, perdoai-os nas fraquezas e renovai neles, a cada dia, a alegria do primeiro "sim".
+Chamai muitos jovens a seguir-vos, e fazei de nós, leigos, amigos e colaboradores dos nossos padres.
+Maria, Mãe dos sacerdotes, rogai por eles. Amém.</p>
+<h3 id="9-alma-de-cristo">9. Alma de Cristo</h3>
+<p><em>Oração do século XIV, que Santo Inácio incluiu nos seus Exercícios Espirituais. Própria para a ação de graças depois da comunhão. Indulgência parcial.</em></p>
+<blockquote>
+<p>Alma de Cristo, santificai-me.
+Corpo de Cristo, salvai-me.
+Sangue de Cristo, inebriai-me.
+Água do lado de Cristo, lavai-me.
+Paixão de Cristo, confortai-me.
+Ó bom Jesus, ouvi-me.
+Dentro de vossas chagas, escondei-me.
+Não permitais que me separe de vós.
+Do espírito maligno defendei-me.
+Na hora da morte chamai-me
+e mandai-me ir para vós,
+para que com vossos Santos vos louve
+por todos os séculos dos séculos. Amém.</p>
+</blockquote>
+<h3 id="10-comunhao-espiritual-santo-afonso-de-ligorio">10. Comunhão espiritual (Santo Afonso de Ligório)</h3>
+<p><em>Para quem não pode comungar sacramentalmente. Não substitui a comunhão sacramental pedida pela Grande Promessa. Indulgência parcial.</em></p>
+<p>Meu Jesus, eu creio que estais presente no Santíssimo Sacramento. Amo-vos sobre todas as coisas e minha alma suspira por vós. Mas, como não posso receber-vos agora no Santíssimo Sacramento, vinde, ao menos espiritualmente, ao meu coração. Abraço-me convosco como se já estivésseis comigo: uno-me convosco inteiramente. Ah! não permitais que torne a separar-me de vós! Ó Jesus, sumo bem e doce amor meu, vulnerai e inflamai o meu coração, a fim de que esteja abrasado em vosso amor para sempre. Amém.</p>
+<h3 id="11-oracao-final-da-hora-santa">11. Oração final da Hora Santa</h3>
+<blockquote>
+<p>Senhor Jesus,
+no Jardim das Oliveiras pedistes aos amigos:
+"Ficai aqui e vigiai comigo",
+e eles dormiram.
+Eu também durmo tantas vezes,
+distraído, cansado, indiferente.
+Hoje eu quero ficar.
+Recebei esta hora como consolo para o vosso Coração,
+como reparação pelo abandono que sofreis
+e como súplica por todos os que estão em agonia.
+Dai-me um coração vigilante
+e fazei que, levantando-me desta oração,
+eu vá ao encontro dos irmãos com o vosso amor.
+Amém.</p>
+</blockquote>
+<h3 id="12-ficha-de-preparacao">12. Ficha de preparação</h3>
+<table class="long-table">
+<thead>
+<tr>
+<th>Item</th>
+<th>Resposta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data e horário</td>
+<td></td>
+</tr>
+<tr>
+<td>Local</td>
+<td></td>
+</tr>
+<tr>
+<td>Forma (roteiro A, B, C, D ou E)</td>
+<td></td>
+</tr>
+<tr>
+<td>Presidente (sacerdote, diácono, ministro ou leigo)</td>
+<td></td>
+</tr>
+<tr>
+<td>Haverá bênção?</td>
+<td></td>
+</tr>
+<tr>
+<td>Animador</td>
+<td></td>
+</tr>
+<tr>
+<td>Leitores (quatro momentos e preces)</td>
+<td></td>
+</tr>
+<tr>
+<td>Cantos (exposição, refrão, penitencial, eucarístico, reposição, final)</td>
+<td></td>
+</tr>
+<tr>
+<td>Intenção do Papa do mês</td>
+<td></td>
+</tr>
+<tr>
+<td>Velas, incenso, véu umeral conferidos</td>
+<td></td>
+</tr>
+<tr>
+<td>Horário de reposição antes da Missa</td>
+<td></td>
+</tr>
+<tr>
+<td>Escala de adoração (se houver)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Este livro foi escrito a partir de um estudo verificado e de documentos oficiais da Igreja sobre a Hora Santa e o culto eucarístico.</em></p></main>
+<a class="topo" href="#sumario" aria-label="Voltar ao sumário">&#8593;</a>
+</body>
+</html>
